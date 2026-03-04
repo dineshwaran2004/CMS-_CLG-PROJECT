@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu - Catering Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+        }
+
+       /* Sidebar Styles */
+       .sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #dcdcdc; /* Light grey sidebar */
+    color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar a {
+    color: #333;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    border-bottom: 1px solid #bbb; /* Light grey border */
+}
+.sidebar a:hover {
+    background-color: #ffcc00; /* Yellow on hover */
+    color: #fff;
+}.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #dcdcdc; /* Light grey sidebar */
+    color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar a {
+    
+    color: #333;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    border-bottom: 1px solid #bbb; /* Light grey border */
+}
+.sidebar a:hover {
+    background-color: #ffcc00; /* Yellow on hover */
+    color: #fff;
+}
+        /* Main content area */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .menu-container {
+            max-width: 1100px;
+            margin: 30px auto;
+            background: #fff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item:hover {
+            background-color: #fafafa;
+        }
+
+        .text-section {
+            flex: 1;
+            padding-right: 20px;
+            font-size: 1.1em;
+        }
+
+        .text-section h3 {
+            font-size: 1.6em;
+            color: #3e8e41;
+            margin-bottom: 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .text-section h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .text-section h3 a:hover {
+            color: #2c6c2d;
+            text-decoration: underline;
+        }
+
+        .text-section p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .image-section img {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            padding: 15px 0;
+            background-color: #f4f4f4;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        footer.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Additional customizations */
+        .menu-item:hover {
+            cursor: pointer;
+        }
+
+        .green-text {
+            color: #4CAF50;
+        }
+
+        .green-text:hover {
+            text-decoration: underline;
+            color: #2e7d32;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>DinesH (cms)</h2>
+        <a href="index.html">Home</a>
+        <a href="foodrequst.php">REQUST</a>
+        
+       
+    </div>
+
+    <div class="main-content">
+        <div class="menu-container">
+            <div class="menu-item">
+                <div class="text-section">
+                    <h3><a href="BUFFET.html">BUFFET</a></h3>
+                    <p>An Indian buffet offers a variety of flavorful, colorful, and aromatic dishes that showcase the diversity of Indian cuisine.</p>
+                </div>
+                <div class="image-section">
+                    <a href="buffet.html"><img src="buffet.jpg" alt="Buffet"></a>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="text-section">
+                    <h3><a href="morning.html" class="green-text">MORNING</a> / <a href="aft.html" class="green-text">AFTERNOON</a> / <a href="night.html" class="green-text">NIGHT</a></h3>
+                    <p>Fresh and wholesome plant-based dishes served in a banana leaf setup.</p>
+                </div>
+                <div class="image-section">
+                    <a href="banana-leaf.html"><img src="leaf.jpg" alt="Leaf Setup"></a>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="text-section">
+                    <h3><a href="nonveg.html">NON-VEG</a></h3>
+                    <p>Delicious meat and seafood delicacies prepared with authentic flavors.</p>
+                </div>
+                <div class="image-section">
+                    <a href="nonveg.html"><img src="nonveg.jpg" alt="Non-Vegetarian"></a>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="text-section">
+                    <h3><a href="desartandsnack.html">DESSERT AND SNACKS</a></h3>
+                    <p>Sweet and savory treats, perfect for rounding off your meal or snacking any time of the day.</p>
+                </div>
+                <div class="image-section">
+                    <a href="desartandsnack.html"><img src="dessert.jpg" alt="Dessert"></a>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer" class="fade-in">
+            &copy; DinesH Catering Management System. All rights reserved.
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var footer = document.getElementById('footer');
+            setTimeout(function() {
+                footer.classList.add('fade-in');
+            }, 300);
+        });
+    </script>
+</body>
+</html>

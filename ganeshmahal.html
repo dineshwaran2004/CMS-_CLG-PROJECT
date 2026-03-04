@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ganesh mahal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column; /* Stack header, content, and footer vertically */
+            align-items: center;
+            min-height: 100vh; /* Ensure it fits the viewport */
+            background: #808080; /* Grey background */
+            perspective: 1200px; /* Stronger 3D effect */
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #808080; /* Grey color for the 3D effect */
+            transform-style: preserve-3d;
+            animation: moveBackground 8s infinite linear;
+            z-index: -1;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(360deg); /* Added rotation for 3D effect */
+            }
+        }
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: #e0ce09;
+            color: #121111;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 5px 5px;
+            border-radius: 5px;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button:hover {
+            background: #444;
+        }
+        header, footer {
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            background-color: #333;
+            color: #b58e10;
+        }
+        header h4{
+            margin: 0;
+            font-size: 2.2em;
+            text-transform: uppercase;
+        }
+        footer {
+            margin-top: auto; /* Push footer to the bottom of the page */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+            text-align: center; /* Center text alignment */
+            z-index: 1;
+            color: #fff;
+            padding: 50px 20px; /* Adds padding for additional vertical space */
+            margin: 50px 0; /* Adds spacing above and below the container */
+        }
+
+        h1 {
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 3.5em;
+            margin: 25px 0;
+        }
+
+        img {
+            width: 600px;   /* Set the width for the image */
+            height: 600px;  /* Set the height for a rectangular image */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin: 15px 0;
+            color: #ffcc00;
+        }
+
+        address {
+            font-style: italic;
+            font-size: 1.2em;
+            margin: 15px 0;
+        }
+
+        .extra-section {
+            background: rgba(0, 0, 0, 0.6); /* Dark background for extra sections */
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .extra-section h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .extra-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body> 
+    <a href="EVENTLOCATION.html"  class="back-button">Back</a>
+    <div class="background"></div>
+
+    <header>
+        <h3>𝗚𝗔𝗡𝗘𝗦𝗛 𝗧𝗛𝗜𝗥𝗨𝗠𝗔𝗡𝗔 𝗠𝗔𝗛𝗔𝗟</h3>
+    </header>
+
+    <div class="container">
+        <img src="ganesh.jpg" alt="Eco Image">
+        <h1>𝙂𝘼𝙉𝙀𝙎𝙃 𝙏𝙃𝙄𝙍𝙐𝙈𝘼𝙉𝘼 𝙈𝘼𝙃𝘼𝙇</h1>
+        <a href="https://maps.app.goo.gl/mczKtTCB69Yfakr48">
+            <h2>𝙇𝙤𝙘𝙖𝙩𝙞𝙤𝙣</h2>
+        </a>
+        <p>Ganesh Mahal has been serving the community for many years as a leading Kalyana Mandapams in College Road, Tirupur. Conveniently located near Kavipalaiyam Pirivu, this banquet hall blends sophistication and comfort, making it an ideal choice for special events. Established in 2012, rated 4.2 stars based on 180 reviews, Ganesh Mahal has earned a reputation for making every occasion memorable.</p>
+        <address>No 1, Kavalipalayam Pirivu, Vanjipalayam, Tamil Nadu 641603</address>
+    </div>
+
+    <!-- Extra Section 1 -->
+    <div class="extra-section">
+        <h2>Why Choose Us?</h2>
+        <p>We provide state-of-the-art facilities, exceptional service, and a picturesque environment to make your special occasions memorable. Whether it’s a wedding, corporate event, or celebration, we have you covered.</p>
+    </div>
+
+    <!-- Extra Section 2 -->
+    <div class="extra-section">
+        <h2>Our Services</h2>
+        <p>From catering to decorations, we handle everything with perfection. Let us help you create unforgettable memories with our top-notch services and impeccable attention to detail.</p>
+    </div>
+
+    <footer>
+        <p>&copy;  DineH catering management system</p>
+    </footer>
+</body>
+</html>

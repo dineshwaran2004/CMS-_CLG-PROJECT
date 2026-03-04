@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking Form</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: #f1f1f1;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #444;
+            text-decoration: none;
+            margin: 15px 0;
+            padding: 12px;
+            background-color: #e7e7e7;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #ccc;
+        }
+
+       /* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background: url('.jpg') no-repeat center center;
+    background-size: cover;
+    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+/* Form Header */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Form Styles */
+.form-left, .form-right {
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Fields */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+select, input[type="text"], input[type="email"], input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+select:focus, input:focus {
+    border-color: #ffa500;
+    outline: none;
+}
+
+input[type="text"], input[type="email"] {
+    background-color: #fff;
+}
+
+/* Submit Button Styles */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #ffa500;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e68a00;
+}
+
+/* Event Booking Form Header */
+.event-booking-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Logo styles */
+.logo {
+        position: fixed;
+        bottom: 10px;  /* Moves the logo down */
+        right: 10px;   /* Moves the logo to the right side */
+        z-index: 1000;
+    }
+
+    .logo img {
+        width: 100px;
+        height: auto;
+    }
+    </style>
+</head>
+<body>
+    <!-- Logo on the right corner below -->
+ <div class="logo">
+  <a href="index.html" ><img src="LOGO.png" alt="DinesH Catering Logo"></a> 
+  </div>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    
+    <a href="index.html">Home</a>
+    <a href="bookingeventlocation.html">Event Place</a>
+    <a href="bookingevent.html"> Events</a>
+    <a href="eventbookingfoodlist.html">Foodlist</a>
+  
+</div>
+
+<!-- Main Content Area -->
+<div class="main-content">
+<h2 class="event-booking-header">Event Booking</h2>
+
+    <div class="container">
+        <!-- Left Side -->
+        <div class="form-left">
+            <!-- Form that submits to itself (PHP processing) -->
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                <label for="place">Select Place</label>
+                <select id="place" name="place">
+                    <option value="select"></option>
+                    <option value="KRISHNA MAHAL">KRISHNA MAHAL (kanakkampalayam,tirupur 641666.)
+                    </option>
+                    <option value="MLR MAHAL">
+MLR MAHAL (prumanallur,tirupur 641666)
+</option>
+                    <option value="SRI MANI MAHAL">SRI MANI MAHAL (kangeyam road nachipalayam.tirupur 641604.)
+                    </option>
+                    
+                    <option value="SRINIVASA MAHAL">SRINIVASA MAHAL (VANJIPALAY AM TIRUPUR 641604)
+                    </option>
+                    
+                    <option value="SRI CHANDRA THIRUMANA MAHAL">SRI CHANDRA THIRUMANA MAHAL (SIRUPOOLUVAPATTO, TIRUPUR 641603)
+                    </option>
+                    
+                    <option value="KAMATCHI AMMAN THIRUMANA MAHAL ">KAMATCHI AMMAN THIRUMANA MAHAL (uthukuli,tirupur 638751)
+                    </option>
+                    
+                    <option value="ARUNAMBIKA MAHAL">KARUNAMBIKA MAHAL (avinasi road tirupur 641666)
+                    </option>
+                    
+                    <option value="RAMAKRISHNA THIRUMANA MANDAPAM">RAMAKRISHNA THIRUMANA MANDAPAM (AVINASI CIVIL AERODROME.COIMBATORE 6410144.)
+                    </option>
+                    
+                    <option value="POTHIGAI MAHAL ">
+POTHIGAI MAHAL (kamgeyam road, bavani nagar,tirupur 641604)
+</option>
+                    
+                    <option value="SARAVANA MAHAL">SARAVANA MAHAL (darapuram main rd tirupur 641604.)
+                    </option>
+                    
+                    <option value="A GRAND MAHAL ">A GRAND MAHAL (pooluvapatti to poondi road.tirupur 641603)</option>
+                </select>
+
+                <label for="event">Select Event</label>
+                <select id="event" name="event">
+                <option value="select"></option>
+                    <option value="wedding">Wedding</option>
+                    <option value="birthday">Birthday party</option>
+                   
+                    <option value="PUBERTY CEREMONY
+">PUBERTY CEREMONY
+</option>
+                    <option value="EAR-PIERCING CEREMONY
+">EAR-PIERCING CEREMONY
+</option>
+                    <option value="BABY SHOWER CEREMONY">BABY SHOWER CEREMONY</option>
+                    <option value="HOUSEWARMING CEREMONY">HOUSEWARMING CEREMONY</option>
+                </select>
+
+                <label for="date">Select Date</label>
+                <!-- Set min attribute for 5 months later -->
+                <input type="date" id="date" name="date" value="<?php echo date('Y-m-d', strtotime('+5 months')); ?>" min="<?php echo date('Y-m-d', strtotime('+5 months')); ?>">
+
+                <label for="food">Select Food</label>
+                <select id="food" name="food">
+                    <option value="veg">Veg</option>
+                    <option value="non-veg">Non-Veg</option>
+                </select>
+
+                <label for="food-type">Dessert & Snacks</label>
+                <select id="food-type" name="food-type">
+                    <option value="yes">yes</option>
+                    <option value="no">no</option>
+                    
+                    
+
+                    
+                   
+                </select>
+                <label>Decoration</label><select name="decoration"><option>yes</option><option>no</option></select>
+                <label>Makeup</label><select name="makeup"><option>yes</option><option>no</option></select>
+                <label>Orchestra</label><select name="orchestra"><option>yes</option><option>no</option></select>
+                <label>Photography</label><select name="photography"><option>yes</option><option>no</option></select>
+        </div>
+
+        <!-- Right Side -->
+        <div class="form-right">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+
+            <label for="contact">Contact</label>
+            <input type="text" id="contact" name="contact" placeholder="Enter your contact number">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit</button>
+        </div>
+    </div>
+</form>
+</div>
+
+<?php
+// Database connection details
+$servername = "localhost";
+$username = "root"; // Default XAMPP username
+$password = ""; // Default XAMPP password
+$dbname = "eventbooking"; // Replace with your database name
+
+// Create a connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// If form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $place = $_POST['place'];
+    $event = $_POST['event'];
+    $date = $_POST['date'];
+    $food = $_POST['food'];
+    $food_type = $_POST['food-type'];
+    $name = $_POST['name'];
+    $contact = $_POST['contact'];
+    $email = $_POST['email'];
+
+    // Validate required fields
+    if (!empty($place) && !empty($event) && !empty($date) && !empty($food) && !empty($food_type) && !empty($name) && !empty($contact) && !empty($email)) {
+        // Prepare and bind statement
+        $stmt = $conn->prepare("INSERT INTO bookings (place, event, date, food, food_type, name, contact, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssss", $place, $event, $date, $food, $food_type, $name, $contact, $email);
+
+        // Execute query
+        if ($stmt->execute()) {
+            echo "<script>alert('Booking submitted successfully!');</script>";
+        } else {
+            echo "<script>alert('Error: " . $stmt->error . "');</script>";
+        }
+
+        // Close the statement
+        $stmt->close();
+    } else {
+        echo "<script>alert('Please fill in all fields.');</script>";
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
+
+</body>
+</html>

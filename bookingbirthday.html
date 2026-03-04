@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Party</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #ff4081;
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background: #ffcc00;
+        }
+
+        /* Content Layout with Margins */
+        .content {
+            display: flex;
+            align-items: center;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            margin: 50px; /* Added margin on all sides */
+        }
+
+        /* Image Section */
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin-right: 20px; /* Added margin between image & text */
+        }
+
+        .event-image {
+            width: 350px;
+            height: 350px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .event-image:hover {
+            transform: scale(1.1);
+        }
+
+        /* Text Section */
+        .text-container {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ff4081;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.9em;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Floating Balloons */
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: red;
+            border-radius: 50%;
+            animation: floatUp 6s infinite ease-in-out;
+            opacity: 0.8;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 40px;
+            background: #ff4081;
+            left: 50%;
+            bottom: -40px;
+            transform: translateX(-50%);
+        }
+
+        .balloon:nth-child(1) { left: 10%; background: #ffcc00; animation-duration: 6s; }
+        .balloon:nth-child(2) { left: 30%; background: #ff4081; animation-duration: 8s; }
+        .balloon:nth-child(3) { left: 50%; background: #00bcd4; animation-duration: 7s; }
+        .balloon:nth-child(4) { left: 70%; background: #8bc34a; animation-duration: 9s; }
+        .balloon:nth-child(5) { left: 90%; background: #f44336; animation-duration: 6s; }
+
+        /* Balloon Floating Animation */
+        @keyframes floatUp {
+            0% { transform: translateY(100vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                text-align: center;
+                margin: 20px; /* Adjust margin for smaller screens */
+            }
+
+            .image-container {
+                margin: 0 0 20px 0; /* Space below image */
+            }
+
+            .text-container {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="bookingevent.html" class="back-button">Back</a>
+
+    <!-- Floating Balloons -->
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Image Left -->
+        <div class="image-container">
+            <img src="Birthday.img.jpg" alt="Birthday Celebration" class="event-image">
+        </div>
+
+        <!-- Text Right -->
+        <div class="text-container">
+            <h1>Birthday Party</h1>
+            <p>Celebrate birthdays with joy, laughter, and amazing food! Tamil Nadu birthday parties blend tradition with modern fun, making every moment special.</p>
+        </div>
+    </div>
+
+    <footer>© DinesH Catering Management System</footer>
+
+</body>
+</html>

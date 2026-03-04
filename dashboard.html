@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Sidebar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ffffff, #ffffff);
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .sidebar, .sidebar-right {
+        width: 260px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+        padding-top: 20px;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .sidebar { position: fixed; left: 0; }
+    .sidebar-right { position: fixed; right: 0; }
+
+    .sidebar:hover, .sidebar-right:hover {
+        width: 300px;
+        transform: rotateY(10deg);
+    }
+
+    .sidebar ul, .sidebar-right ul { list-style-type: none; padding: 0; }
+
+    .sidebar ul li a, .sidebar-right ul li a {
+        text-decoration: none;
+        color: #082a50;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: 0.3s;
+    }
+
+    .sidebar ul li a:hover, .sidebar-right ul li a:hover {
+        background: rgba(0, 0, 0, 0.3);
+        transform: scale(1.1) rotateX(10deg);
+    }
+
+    .sidebar ul li a.active { background: #1abc9c; color: white; }
+
+    .content { margin-left: 300px; margin-right: 300px; padding: 50px; }
+
+    h1 { font-size: 40px; color: #333; }
+ /* Logo */
+.logo {
+        position: fixed;
+        bottom: 60px;
+        right: 90px;
+        z-index: 1000;
+    }
+
+    .logo img {
+        width: 100px;
+        height: auto;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="logo">
+
+  </div>
+  
+  <div class="sidebar">
+    <ul>
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li><br><br>
+      <li><a href="display.php"><i class="fas fa-calendar-check"></i> Event Booking</a></li><br><br>
+      <li><a href="displayworker.php"><i class="fas fa-users"></i> Worker Details</a></li><br><br>
+      <li><a href="login.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-right">
+    <ul>
+      <li><a href="nemviweing.php"><i class="fas fa-building"></i> Mahal Registration</a></li><br><br>
+      <li><a href="http://localhost/final/event%20requstviweing.php/"><i class="fas fa-calendar-plus"></i> Event Requests</a></li><br><br>
+      <li><a href="viwerequstfood.php"><i class="fas fa-utensils"></i> Food Requests</a></li><br><br>
+      <li><a href="view_feedback.php"><i class="fas fa-comments"></i> Feedback</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <h1>A Smart Event Management</h1>
+  </div>
+</body>
+</html>

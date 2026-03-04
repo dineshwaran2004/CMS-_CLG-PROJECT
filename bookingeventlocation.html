@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Hover Cards</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #dcdcdc;
+            color: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            color: #333;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            border-bottom: 1px solid #bbb;
+            text-align: center;
+        }
+
+        .sidebar a:hover {
+            background-color: #ffcc00;
+            color: #fff;
+        }
+
+        /* Main Content */
+        .content {
+            margin-left: 270px; /* Push content to the right to avoid overlapping with sidebar */
+            width: calc(100% - 270px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        /* Title */
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+            color: rgb(225, 190, 13);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Card Container */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;  /* Center horizontally */
+            align-items: center;      /* Center vertically */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Card Design */
+        .card {
+    position: relative;
+    width: 350px; /* Increased width for rectangle */
+    height: 300px; /* Kept height same */
+    border-radius: 15px;
+    overflow: hidden;
+    background: yellow;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+            transition: filter 0.3s ease;
+        }
+
+        .card:hover img {
+            filter: brightness(1);
+        }
+
+        .card h4 {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.2em;
+            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .card:hover h4 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            background-color: gray;
+            color: rgb(229, 210, 9);
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        /* Logo */
+        .logo {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 80px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        
+        <a href="event booking.php">Bcak to booking</a>
+     
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+    
+
+        <div class="card-container">
+            <!-- Event Cards -->
+            <div class="card">
+                <a href="bookingkrishna.html"><img src="krishns.jpg" alt="Krishna Mahal"></a>
+                <h4>Krishna Mahal</h4>
+            </div>
+
+            <div class="card">
+                <a href="bookingmlr.html"><img src="mlr.jpg" alt="MLR"></a>
+                <h4>MLR</h4>
+            </div>
+
+            <div class="card">
+                <a href="bookingsrinivasa.html"><img src="mani.jpg" alt="Sri Mani"></a>
+                <h4>Sri Mani</h4>
+            </div>
+
+            <div class="card">
+                <a href="bookingsrimanu.html"><img src="srini.jpg" alt="Srinivasa Mahal"></a>
+                <h4>Srinivasa Mahal</h4>
+            </div>
+
+            <div class="card">
+                <a href="bookingchandramahal.html"><img src="santhira.jpg" alt="Chandra Mahal"></a>
+                <h4>Chandra Mahal</h4>
+            </div>
+
+            <div class="card">
+                <a href="bookingkamatchi.html"><img src="k amman.jpg" alt="Kamatchi Amman Mahal"></a>
+                <h4>Kamatchi Amman Mahal</h4>
+            </div>
+
+            <div class="card">
+                <a href="bookingkarun.html"><img src="karun.jpg" alt="Karunambika Mahal"></a>
+                <h4>Karunambika Mahal</h4>
+            </div>
+
+            <div class="card">
+                <a href="bookingramakrishna.html"><img src="ramakrishna.jpg" alt="Ramakrishna Mahal"></a>
+                <h4>Ramakrishna Mahal</h4>
+            </div>
+
+            <div class="card">
+                <a href="bookingsaravana.html"><img src="saravana.jpg" alt="Saravana Mahal"></a>
+                <h4>Saravana Mahal</h4>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2025 Dinesh Catering Management System.
+        </footer>
+    </div>
+
+    <!-- Logo -->
+    <div class="logo">
+        <a href="index.html"><img src="LOGO.png" alt="Dinesh Catering Logo"></a>
+    </div>
+
+</body>
+</html>

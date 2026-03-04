@@ -1,0 +1,344 @@
+css ;
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #dcdcdc; /* Light grey sidebar */
+    color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar a {
+    color: #333;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    border-bottom: 1px solid #bbb; /* Light grey border */
+}
+.sidebar a:hover {
+    background-color: #ffcc00; /* Yellow on hover */
+    color: #fff;
+}.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #dcdcdc; /* Light grey sidebar */
+    color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar a {
+    
+    color: #333;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    border-bottom: 1px solid #bbb; /* Light grey border */
+}
+.sidebar a:hover {
+    background-color: #ffcc00; /* Yellow on hover */
+    color: #fff;
+}
+<html><div class="sidebar">
+    
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a></html>
+    #ffa500
+    #f1f1f1
+    <diV>
+    <H2><CENTER>ADDRESS</CENTER></H2>
+     <Address>
+         16, Ghana Prakasam 2 St, chikkana college back side, Vivekananda Nagar, Konganagiri, Tiruppur, Tamil Nadu 641602
+     </Address>
+ </diV>
+ <li><a href=" https://wa.me/message/7VA3VNCTSKRML1"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+          <li><a href="https://x.com/dinesHCSM?t=Q9-OVgqeD94LP8l5vh8pQg&s=09"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="https://www.instagram.com/csman_agment?igsh=cms5NXUwMnRudmR0"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61572412450088"><i class="fab fa-facebook"></i> Facebook</a></li
+          <div class="container">
+        <h1>Ear-Piercing Ceremony</h1>
+        <img src="Kathu kuthu.img.jpg" alt="Image of the Ear-Piercing Ceremony">
+        <p>The "Kadhu Kutthal Vizha" is a significant ear-piercing ceremony in Tamil Nadu, rooted in cultural and spiritual traditions..</p>
+    </div>
+    <div>
+        <center><h2>ADDRESS</h2></center>
+        <address>16, Ghana Prakasam 2 St, <BR>chikkana college back side, Vivekananda Nagar, Konganagiri,<BR> Tiruppur, Tamil Nadu 641602</address>
+          
+
+    </div>
+    
+    
+    <div class="container">
+    <h1>𝙥𝙪𝙗𝙚𝙧𝙩𝙮 𝘾𝙚𝙧𝙚𝙢𝙤𝙣𝙮</h1>
+    <img src="Majal.img.jpg" alt="3D Image">
+    <p>In Tamil Nadu, the "Puthir Kalyanam" or "Manjal Neerattu Vizha"
+         marks a girl's puberty, celebrating her transition with cultural and familial significance.</p>
+</div>
+<div class="container">
+        <h1>𝙃𝙤𝙪𝙨𝙚𝙬𝙖𝙧𝙢𝙞𝙣𝙜 𝙘𝙚𝙧𝙚𝙢𝙤𝙣𝙮</h1>
+        <img src="puthumani.jpg" alt="3D Image">
+        <p>In Tamil Nadu, a housewarming ceremony is called "Griha Pravesham" (கிரஹ பிரவேசம்) or
+         "Veedu Kattuvizha" (வீடு கட்டுவிழா).</p>
+    </div>
+    <!-- Image Left -->
+    <div class="image-container">
+        <img src="Majal.img.jpg" alt="Wedding Celebration">
+    </div>
+
+    <!-- Text Right -->
+    <div class="text-container">
+        <h1>𝙥𝙪𝙗𝙚𝙧𝙩𝙮 𝘾𝙚𝙧𝙚𝙢𝙤𝙣𝙮</h1>
+        <p>n Tamil Nadu, the "Puthir Kalyanam" or "Manjal Neerattu Vizha"
+            marks a girl's puberty, celebrating her transition with cultural and familial significance.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--footer-->
+<style>
+    footer {
+      background-color: #000; /* Pure Black */
+      color: #fff;
+    }
+    
+      footer {
+        background-color: #000; /* Pure Black */
+        color: #fff;
+        padding: 40px 20px;
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+      }
+    
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    
+      .footer-left,
+      .footer-center,
+      .footer-right {
+        flex: 1;
+        padding: 20px;
+      }
+    
+      .footer-left ul,
+      .footer-right ul {
+        list-style: none;
+        padding: 0;
+      }
+    
+      .footer-left li,
+      .footer-right li {
+        margin: 12px 0;
+      }
+    
+      .footer-left a,
+      .footer-right a {
+        text-decoration: none;
+        color: #ddd;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+      }
+    
+      .footer-left a:hover,
+      .footer-right a:hover {
+        color: #ff7043;
+        transform: translateX(5px);
+      }
+    
+      .footer-center {
+        text-align: center;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    
+      .footer-center strong {
+        font-size: 1.4rem;
+        color: #ff7043;
+        text-shadow: 2px 2px 5px rgba(255, 112, 67, 0.5);
+      }
+    
+      /* Social Media Icons */
+      .footer-right {
+        text-align: right;
+      }
+    
+      .footer-right a {
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+    
+      .footer-right i {
+        font-size: 1.5rem;
+        margin-right: 10px;
+        transition: transform 0.3s ease;
+      }
+    
+      .footer-right a:hover i {
+        transform: rotate(10deg) scale(1.2);
+        color: #ff7043;
+      }
+    
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .footer-container {
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+        }
+    
+        .footer-left, .footer-right {
+          text-align: center;
+        }
+      }
+    </style>
+    
+    <footer>
+      <div class="footer-container">
+        
+        <!-- Left Section -->
+        <div class="footer-left">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+    
+        <!-- Center Section -->
+        <div class="footer-center">
+          <p><strong>DINESH CATERING MANAGEMENT SYSTEM</strong></p>
+          <p>Created by Dineshwaran.D</p>
+          <p>2222J0020</p>
+          <p>CGAC-TIRUPUR</p>
+          <p>DEPARTMENT OF COMPUTER APPLICATION</p>
+        </div>
+    
+        <!-- Right Section -->
+        <div class="footer-right">
+          <ul>
+            <li><a href="https://wa.me/message/7VA3VNCTSKRML1"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+            <li><a href="https://x.com/dinesHCSM?t=Q9-OVgqeD94LP8l5vh8pQg&s=09"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://www.instagram.com/csman_agment?igsh=cms5NXUwMnRudmR0"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61572412450088"><i class="fab fa-facebook"></i> Facebook</a></li>
+          </ul>
+        </div>
+    
+      </div>
+    </footer>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.15);
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    th {
+      background-color: #ffcc00;
+      color: #333;
+      font-size: 16px;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .no-data {
+      text-align: center;
+      font-size: 18px;
+      color: #777;
+      padding: 20px;
+    }
+
+
+
+
+
+
+
+
+
+    .footer-logo {
+      position: fixed;
+      right: 20px; /* Adjust as needed */
+      bottom: 20px; /* Adjust as needed */
+      width: 100px; /* Adjust size */
+      z-index: 1000; /* Ensures it stays on top */
+  }
+
+
+  <footer>
+    <img src="LOGO.png" alt="Logo" class="footer-logo">
+</footer>
+
+
+/* Logo */
+.logo {
+        position: fixed;
+        bottom: 60px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .logo img {
+        width: 100px;
+        height: auto;
+    }
+ <!-- Logo -->
+ <div class="logo">
+  <a href="index.html"><img src="LOGO.png" alt="Dinesh Catering Logo"></a>
+</div>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cards with Fullscreen Mode</title>
+  <style>
+      body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #808080, #FFD700);
+      background-size: 300% 300%;
+      animation: backgroundAnimation 10s infinite;
+      overflow: hidden;
+    }
+
+    @keyframes backgroundAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #222120;
+      font-size: 2.1em;
+      position: absolute;
+      top: 0;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 4;
+      background: rgba(255, 255, 255, 0.8);
+      color: #000;
+      text-decoration: none;
+      font-size: 0.9em;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .back-button:hover {
+      background: #ffd700;
+      transform: scale(1.1);
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px 20px 40px 20px;
+      gap: 20px;
+      height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+
+    .card {
+      width: 300px;
+      height: 200px;
+      background-color: #d3d3d3;
+      border: 5px solid #ccc;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      color: #333;
+      font-size: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .card:hover {
+      transform: rotateY(10deg) rotateX(-10deg) scale(1.05);
+    }
+
+    .card .logo img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    .card-content {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* Fullscreen Mode */
+    .card.fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+      z-index: 1000;
+      background: #ccc;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      padding: 30px;
+      gap: 20px;
+    }
+
+    .card.fullscreen img {
+      width: 40%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .card.fullscreen .text-content {
+      width: 50%;
+    }
+
+    .card.fullscreen h2 {
+      margin-top: 0;
+      font-size: 2em;
+    }
+
+    .card.fullscreen p {
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close-button:hover {
+      color: red;
+    }
+
+    footer {
+      width: 100%;
+      padding: 5px 0;
+      background-color: rgba(51, 51, 51, 0.7);
+      color: white;
+      text-align: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 1000;
+      font-size: 0.9em;
+    }
+
+        
+  </style>
+</head>
+<body>
+  <a href="eventbookingfoodlist.html" class="back-button">Back</a>
+
+<header>𝗠𝗢𝗥𝗡𝗜𝗡𝗚</header>
+
+  <div class="card-container">
+    <div class="card" data-title="KESARI" data-content="A traditional Indian dessert made with semolina, ghee, sugar, and saffron."
+    data-image="kesari.jpg">
+      <div class="logo"><img src="kesari.jpg" alt="Logo"></div>
+      <div class="card-content">KESARI</div>
+    </div>
+    <div class="card" data-title="ULUNTHA VADAI" data-content="A savory South Indian snack made from black gram lentils, deep-fried into a crispy doughnut shape."
+    data-image="ulundu-vadai.jpg">
+      <div class="logo"><img src="ulundu-vadai.jpg" alt="Logo"></div>
+      <div class="card-content">ULUNTHA VADAI</div>
+    </div>
+    <div class="card" data-title="IDLI" data-content="Steamed rice cakes, soft and fluffy, typically served with chutney and sambar."
+     data-image="idli.jpg">
+      <div class="logo"><img src="idli.jpg" alt="Logo"></div>
+      <div class="card-content">IDLI</div>
+    </div>
+    <div class="card" data-title="SAMBAR" data-content="A flavorful lentil-based curry with vegetables, commonly served with rice or idli."
+    data-image="sambar.jpg">
+      <div class="logo"><img src="sambar.jpg" alt="Logo"></div>
+      <div class="card-content">SAMBAR</div>
+    </div>
+    <div class="card" data-title="THENGAI CHUTNEY" data-content="A coconut-based chutney, often served with South Indian dishes."
+    data-image="coconut-chutney_-1.jpg">
+      <div class="logo"><img src="coconut-chutney_-1.jpg" alt="Logo"></div>
+      <div class="card-content">THENGAI CHUTNEY</div>
+    </div>
+    <div class="card" data-title="MINT (PUTHINA) CHUTNEY" data-content="A refreshing chutney made with mint leaves and spices."
+    data-image="Dahi-Pudina-Chutney04.jpg">
+      <div class="logo"><img src="Dahi-Pudina-Chutney04.jpg" alt="Logo"></div>
+      <div class="card-content">MINT (PUTHINA) CHUTNEY</div>
+    </div>
+    <div class="card" data-title="TOMATO CHUTNEY" data-content="A tangy chutney made with tomatoes, spices, and herbs."
+     data-image="Tomato-Chutney02.jpg">
+      <div class="logo"><img src="Tomato-Chutney02.jpg" alt="Logo"></div>
+      <div class="card-content">TOMATO CHUTNEY</div>
+    </div>
+    <div class="card" data-title="UTTAPAM" data-content="A thick pancake made from rice and lentil batter, topped with vegetables."
+    data-image="uttapam.jpg">
+      <div class="logo"><img src="uttapam.jpg" alt="Logo"></div>
+      <div class="card-content">UTTAPAM</div>
+    </div>
+    <div class="card" data-title="UPMA" data-content="A savory semolina dish, cooked with vegetables and spices."
+     data-image="uppma.jpg">
+      <div class="logo"><img src="uppma.jpg" alt="Logo"></div>
+      <div class="card-content">UPMA</div>
+    </div>
+    <div class="card" data-title="VENPONGAL" data-content="A traditional South Indian dish made with rice and moong dal, flavored with black pepper and ghee."
+    data-image="p0ngal.jpg">
+      <div class="logo"><img src="p0ngal.jpg" alt="Logo"></div>
+      <div class="card-content">VENPONGAL</div>
+    </div>
+    <div class="card" data-title="MUSHROOM BIRYANI" data-content="A flavorful rice dish made with mushrooms, rice, and aromatic spices."
+     data-image="mussroombiriyani.jpg">
+      <div class="logo"><img src="mussroombiriyani.jpg" alt="Logo"></div>
+      <div class="card-content">MUSHROOM BIRYANI</div>
+    </div>
+    <div class="card" data-title="POORI AND MASALA" data-content="Deep-fried wheat bread served with a spicy potato curry."
+    data-image="pooriand masal.jpg">
+      <div class="logo"><img src="pooriand masal.jpg" alt="Logo"></div>
+      <div class="card-content">POORI AND MASALA</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2024 DinesH Catering Management System. All rights reserved.</p>
+  </footer>
+
+  <script>
+     document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        card.addEventListener("click", () => {
+          if (card.classList.contains("fullscreen")) {
+            card.classList.remove("fullscreen");
+            card.innerHTML = `
+              <div class="logo"><img src="${card.getAttribute("data-image")}" alt="Logo"></div>
+              <div class="card-content">${card.getAttribute("data-title")}</div>
+            `;
+          } else {
+            card.classList.add("fullscreen");
+            const title = card.getAttribute("data-title");
+            const content = card.getAttribute("data-content");
+            const image = card.getAttribute("data-image");
+
+            card.innerHTML = `
+              <span class="close-button">&times;</span>
+              <img src="${image}" alt="${title}">
+              <div class="text-content">
+                <h2>${title}</h2>
+                <p>${content}</p>
+              </div>
+            `;
+
+            card.querySelector(".close-button").addEventListener("click", () => {
+              card.classList.remove("fullscreen");
+              card.innerHTML = `
+                <div class="logo"><img src="${image}" alt="Logo"></div>
+                <div class="card-content">${title}</div>
+              `;
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

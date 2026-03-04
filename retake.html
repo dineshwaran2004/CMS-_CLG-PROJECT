@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DinesH Catering Management System</title>
+    <style>
+/*header*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.118); /* Transparent background */
+    color: white;
+    position: fixed; /* Keep the header fixed on top */
+    width: 98%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 40px; /* Set a specific height */
+}
+
+.header-left a, .header-right a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-right: 1.5rem;
+}
+
+.header-left a:hover, .header-right a:hover {
+    text-decoration: underline;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar {
+    position: relative;
+    margin-left: 1rem;
+}
+
+.menu-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    padding: 10px;
+}
+
+/* Initially hide the dropdown menu */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 45px; /* Adjusted for spacing */
+    right: 0;
+    background-color: #333; /* Dark background */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 200px; /* Adjust width */
+}
+
+/* Style the links inside the dropdown */
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.dropdown-menu a:hover {
+    background-color: #555; /* Darker hover effect */
+}
+
+/* Display the dropdown menu when .active class is added */
+.menu-bar.active .dropdown-menu {
+    display: block;
+}
+
+/* Hamburger button style */
+.menu-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    padding: 10px;
+}
+
+
+
+
+/*HOME*/
+.hero {
+    font-family: 'Poppins', sans-serif; /* Change to your selected font */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 3.5rem; /* Make the heading slightly larger */
+    margin: 0 0 1rem;
+    font-weight: 700; /* Bold weight for better emphasis */
+    letter-spacing: 1px; /* Add spacing for elegance */
+}
+
+p {
+    font-size: 1.4rem; /* Increase font size slightly */
+    margin-bottom: 2rem;
+    font-weight: 400; /* Regular weight */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Optional: Add text shadow for a glowing effect */
+.hero-content h1,
+.hero-content p {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+
+        .hero .slides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            animation: slide-animation 12s infinite;
+        }
+
+        .hero .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes slide-animation {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            75% { transform: translateX(-300%); }
+            100% { transform: translateX(0); }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0 0 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ffc107;
+            color: #333;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            animation: blink-animation 2s infinite;
+        }
+
+        .btn:hover {
+            background-color: #ffb007;
+        }
+
+        @keyframes blink-animation {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+    
+    <!-- Hamburger Menu -->
+    <header>
+        <div class="header-left">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="header-right">
+            <!-- Links to sections within the same page (ensure matching IDs) -->
+            <a href="#about-us">About Us</a>
+            <a href="about-contact">Contact</a>
+            <div class="menu-bar">
+                <div class="menu-bar">
+                    <button onclick="toggleMenu()">☰</button>
+                    <div class="dropdown-menu">
+                        <a href="feedback.php">Report</a>
+                        <a href="http://localhost/FINAL/LOGIN.PHP">Admin login</a>
+                        <a href="http://localhost/final/newr.php">Mahal&Manapam Registration</a>
+                        <a href="http://localhost/final/workerlogin.php">Mahal&Manapam login</a>
+                    </div>
+                </div>
+                
+        </div>
+        <script>
+            function toggleMenu() {
+                const menuBar = document.querySelector('.menu-bar');
+                menuBar.classList.toggle('active');
+            }
+        </script>
+    </header>
+    
+ 
+
+    <!--HOME-->
+    <div class="hero">
+        <div class="slides">
+            <img src="slydeno1.jpg" alt="Slide 1">
+            <img src="slydeno2.jpg" alt="Slide 2">
+            <img src="slydeno3.jpg" alt="Slide 3">
+            <img src="slydeno4.jpg" alt="Slide 4">
+        </div>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+            <h1>DinesH CATERING MANAGEMENY SYSTEM</h1>
+            <p>Experience the finest catering for your events.</p>
+            <a href="http://localhost/final/event%20booking.php" class="btn">Book Now</a>
+            <a href="http://localhost/final/add_worker.php" class="btn" style="margin-left: 1rem;">Worker Registration</a>
+        </div>
+    </div>
+
+    <!--detail viwing-->
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4; /* Solid background color for body */
+            }
+    
+            .sections {
+                display: flex;
+                justify-content: space-around;
+                padding: 50px 0;
+            }
+    
+            .section {
+                background-color: #fff; /* Solid white background for the section */
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                padding: 30px;
+                width: 150px;
+                transition: transform 0.3s;
+            }
+    
+            .section:hover {
+                transform: scale(1.05);
+            }
+    
+            .icon {
+                font-size: 60px; /* Increased icon size */
+                color: #FFDA00; /* Yellow color */
+            }
+    
+            h2 {
+                font-size: 24px; /* Increased heading size */
+                color: #333;
+                margin-top: 15px;
+            }
+    
+            p {
+                font-size: 16px;
+                color: #555;
+                margin: 10px 0;
+            }
+    
+            .explore-btn {
+                padding: 10px 20px;
+                background-color: #FFDA00; /* Yellow color */
+                border: none;
+                border-radius: 5px;
+                color: #333;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            .explore-btn:hover {
+                background-color: #e6c200; /* Slightly darker yellow */
+            }
+        </style>
+    </head>
+    
+    <body>
+        <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f4f4; /* Solid background color for body */
+                }
+        
+                .sections {
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 50px 0;
+                }
+        
+                .section {
+                    background-color: #514c4cdc; /* Solid background color for the section */
+                    border-radius: 10px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    padding: 30px;
+                    width: 350px;
+                    transition: transform 0.3s;
+                    background-size: cover; /* Make the background image cover the entire card */
+                    background-position: center; /* Center the image */
+                    position: relative; /* Allows positioning of elements inside */
+                }
+        
+                .section:hover {
+                    transform: scale(1.05);
+                }
+        
+                .icon {
+                    font-size: 60px; /* Increased icon size */
+                    color: #FFDA00; /* Yellow color */
+                    position: absolute;
+                    top: -80px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+        
+                h2 {
+                    font-size: 24px; /* Increased heading size */
+                    color: #ffffff;
+                    margin-top: 100px;
+                }
+        
+                p {
+                    font-size: 16px;
+                    color: #ffffff;
+                    margin: 10px 0;
+                }
+        
+                .explore-btn {
+                    padding: 10px 20px;
+                    background-color: #FFDA00; /* Yellow color */
+                    border: none;
+                    border-radius: 5px;
+                    color: #333;
+                    font-size: 16px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                }
+        
+                .explore-btn:hover {
+                    background-color: #e6c200; /* Slightly darker yellow */
+                }
+        
+                /* Optional: Add overlay to make text stand out more on top of the image */
+                .section::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+                    border-radius: 10px;
+                }
+        
+                .section-content {
+                    position: relative;
+                    z-index: 1; /* Ensure text is above the overlay */
+                }
+            </style>
+        </head>
+        
+        <body>
+            <div class="sections">
+                <div class="section" style="background-image: url('cardbk.png');">
+                    <div class="section-content">
+                        <i class="fas fa-map-marker-alt icon"></i> <!-- Location Icon -->
+                        <h2>Place</h2>
+                        <p>Find the best places for your events.</p>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+                <div class="section" style="background-image: url('cardbk.png');">
+                    <div class="section-content">
+                        <i class="fas fa-calendar-alt icon"></i> <!-- Event Icon -->
+                        <h2>Event</h2>
+                        <p>Explore events tailored to your needs.</p>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+                <div class="section" style="background-image: url('cardbk.png');">
+                    <div class="section-content">
+                        <i class="fas fa-utensils icon"></i> <!-- Food List Icon -->
+                        <h2>Food List</h2>
+                        <p>Browse the best catering options.</p>
+                        <button class="explore-btn">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </body>
+        <!--detail -->
+
+        <head>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f9f9f9;
+                }
+        
+                .features-container {
+                    max-width: 800px;
+                    margin: 50px auto;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+                    gap: 20px;
+                    padding: 20px;
+                    text-align: center;
+                }
+        
+                .feature-card {
+                    background-color: transparent;
+                    border: none;
+                    padding: 10px;
+                    text-align: center;
+                }
+        
+               
+        
+                .icon-wrapper img {
+                    width: 150px;
+                    height: 150px;
+                    object-fit: contain;
+                }
+        
+                .feature-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #333;
+                    margin: 15px 0 10px;
+                }
+        
+                .feature-description {
+                    font-size: 16px;
+                    color: #555;
+                    line-height: 1.5;
+                }
+        
+                .divider {
+                    width: 60px;
+                    height: 3px;
+                    background-color: #3c84ff;
+                    margin: 20px auto;
+                }
+            </style>
+        </head>
+        
+        <body>
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <img src="location.png" alt="LOCATION">
+                    </div>
+                    <h3 class="feature-title">NUMBER OF LOCATION</h3>
+                    <p class="feature-description">2</p>
+                </div>
+        
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <img src="eventimg.png" alt="EVENT">
+                    </div>
+                    <h3 class="feature-title">NUMBER OF EVENT</h3>
+                    <p class="feature-description">2</p>
+                </div>
+        
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <img src="foodlistimg.png" alt="FOODLIST">
+                    </div>
+                    <h3 class="feature-title">NUMBER OF FOODLIST</h3>
+                    <p class="feature-description">5</p>
+                </div>
+            </div>
+        </body>
+        <!--about us-->
+
+        <style>
+            body {
+                font-family: 'Verdana', sans-serif;
+                background-color: #fafafa;
+                margin: 0;
+                padding: 0;
+            }
+    
+            .about-us-section {
+                background-color: #219ff3;
+                padding: 60px;
+                text-align: center;
+                color: #fff;
+                border-radius: 12px;
+                margin: 50px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+    
+            .section-title {
+                font-size: 42px;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-bottom: 30px;
+                letter-spacing: 3px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+    
+            .section-content {
+                font-size: 20px;
+                line-height: 1.8;
+                max-width: 900px;
+                margin: 0 auto;
+                font-weight: 300;
+                color: #fff;
+            }
+    
+            .highlight {
+                color: #ffeb3b;
+                font-weight: bold;
+            }
+    
+            .call-to-action {
+                margin-top: 30px;
+                padding: 12px 25px;
+                font-size: 18px;
+                font-weight: bold;
+                color: #2196f3;
+                background-color: #ffeb3b;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                text-transform: uppercase;
+            }
+    
+            .call-to-action:hover {
+                background-color: #fdd835;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="about-us-section">
+            <div class="section-title">About Us</div>
+            <div class="section-content">
+                <p>Welcome to the <span class="highlight">Dinesh Catering Management System</span>, where we offer seamless and professional catering solutions designed to meet the unique needs of every event. From small gatherings to large corporate functions, our platform ensures smooth and efficient service every time.</p>
+                <p>With advanced features like <span class="highlight">custom menu creation</span>, real-time order tracking, and on-time delivery, we are committed to making your events unforgettable.</p>
+                <p>Let us handle the details while you focus on enjoying your event!</p>
+                <button class="call-to-action">Learn More</button>
+            </div>
+        </div>
+    </body>
+
+    <!--contact-->
+    <style>#contact {
+        padding: 40px; /* Increased padding for more space inside the box */
+        background-color: #ff0404;
+        background-image: url('contactyellow.jpg'); /* Add your background image URL here */
+        background-size: cover; /* Make sure the image covers the entire box */
+        background-position: center; /* Center the image */
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 90%; /* Adjust width for responsiveness */
+        max-width: 1500px; /* Increased max-width for a larger box */
+        min-height: 300px; /* Set a minimum height to make the box taller */
+        margin: 20px auto;
+      }
+      
+      .contact-info ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .contact-info li {
+        margin: 15px 0; /* Increased margin for spacing */
+      }
+      
+      .contact-info a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold; /* Make font bold */
+      }
+      
+      .social-media a {
+        margin: 0 15px; /* Increased margin between icons */
+        font-size: 30px; /* Increased icon size */
+        color: #fff;
+        text-decoration: none;
+      }
+      
+      .social-media a:hover {
+        color: #e10505;
+      }
+      
+      /* Importing FontAwesome for social media icons */
+      @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+      
+      </style>
+
+    
+
+   </style>
+   <section id="contact">
+    <div class="contact-info">
+      <h2>Contact Us</h2>
+      <ul>
+       <h3><li><strong>Phone:</strong> <a href="tel:+1234567890">+1 234 567 890</a></li>
+        <li><strong>Email:</strong> <a href="mailto:example@gmail.com">example@gmail.com</a></li></h3> 
+      </ul>
+    </div>
+  
+    <div class="social-media">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/yourwhatsapplink" target="_blank"><i class="fab fa-whatsapp"></i></a> <!-- WhatsApp icon -->
+    </div>
+  </section>
+  <!--footer-->
+  <style>
+footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-left ul,
+.footer-right ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-left li,
+.footer-right li {
+  margin: 15px 0;
+}
+
+.footer-left a,
+.footer-right a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.footer-left a:hover,
+.footer-right a:hover {
+  color: #ff7043;
+  transform: translateX(5px);
+  padding-left: 5px;
+}
+
+.footer-center {
+  text-align: center;
+  flex: 1 1 100%;
+  padding: 20px;
+  font-size: 1.1rem;
+  position: absolute;
+  top: 20px; /* Position the content at the top of the footer */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+}
+
+.footer-center p {
+  margin: 10px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.footer-center .footer-text {
+  font-weight: bold;
+}
+
+.footer-center .footer-details {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.footer-center p a {
+  color: #ff7043;
+  text-decoration: none;
+}
+
+.footer-center p strong {
+  font-size: 1.2rem;
+}
+
+/* Icon styles */
+.footer-right {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer-right i {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.footer-right i:hover {
+  transform: scale(1.2);
+  color: #ff7043;
+}
+
+/* Adjusting footer layout for better alignment on smaller screens */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-left, .footer-right {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .footer-center {
+    padding: 10px;
+    margin-bottom: 20px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-right {
+    position: relative;
+    margin-top: 20px;
+    bottom: auto;
+    right: auto;
+    justify-content: center;
+  }
+
+  .footer-right i {
+    margin-right: 10px;
+  }
+}
+
+
+  </style>
+<footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-center">
+        <p><strong>DINESH CATERING MANAGEMENT SYSTEM</strong></p>
+        <p>Created by Dineshwaran.D</p>
+        <p>2222J0020</p>
+        <p>CGAC-TIRUPUR</p>
+        <p>DEPARTMENT OF COMPUTER APPLICATION</p>
+      </div>
+  
+      <div class="footer-right">
+        <head>
+            <!-- Add this in the head section of your HTML file -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+          </head>
+          
+        <ul>
+          <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  
+

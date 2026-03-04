@@ -1,0 +1,428 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4; /* Solid background color for body */
+    }
+
+    .sections {
+        display: flex;
+        justify-content: space-around;
+        padding: 50px 0;
+    }
+
+    .section {
+        background-color: #514c4cdc; /* Solid background color for the section */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 30px;
+        width: 350px;
+        transition: transform 0.3s;
+        background-size: cover; /* Make the background image cover the entire card */
+        background-position: center; /* Center the image */
+        position: relative; /* Allows positioning of elements inside */
+    }
+
+    .section:hover {
+        transform: scale(1.05);
+    }
+
+    .icon {
+        font-size: 60px; /* Increased icon size */
+        color: #b80505; /* Yellow color */
+        position: absolute;
+        top: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    h2 {
+        font-size: 34px; /* Increased heading size */
+        color: #ffffff;
+        margin-top: 100px;
+    }
+
+    p {
+        font-size: 16px;
+        color: #ffffff;
+        margin: 10px 0;
+    }
+
+    .explore-btn {
+        padding: 10px 20px;
+        background-color: #FFDA00; /* Yellow color */
+        border: none;
+        border-radius: 5px;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .explore-btn:hover {
+        background-color: #e6c200; /* Slightly darker yellow */
+    }
+
+    /* Optional: Add overlay to make text stand out more on top of the image */
+    .section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+        border-radius: 10px;
+    }
+
+    .section-content {
+        position: relative;
+        z-index: 1; /* Ensure text is above the overlay */
+    }
+</style>
+</head>
+
+<body>
+<section id="services">
+<div class="sections">
+    <div class="section" style="background-image: url('09-removebg-preview.png');">
+        <div class="section-content">
+            <i class="fas fa-map-marker-alt icon"></i> <!-- Location Icon -->
+            <h2>Place</h2>
+            <p><h3>𝙁𝙞𝙣𝙙 𝙩𝙝𝙚 𝙗𝙚𝙨𝙩 𝙥𝙡𝙖𝙘𝙚𝙨 𝙛𝙤𝙧 𝙮𝙤𝙪𝙧 𝙚𝙫𝙚𝙣𝙩𝙨.</h3></p>
+            <a href="EVENTLOCATION.html">
+                <button class="explore-btn">Explore</button>
+            </a>
+        </div>
+        
+    </div>
+    <div class="section" style="background-image: url('cardbk.png');">
+        <div class="section-content">
+            <i class="fas fa-calendar-alt icon"></i> <!-- Event Icon -->
+            <h2>Event</h2>
+            <p><h3>𝙀𝙭𝙥𝙡𝙤𝙧𝙚 𝙚𝙫𝙚𝙣𝙩𝙨 𝙩𝙖𝙞𝙡𝙤𝙧𝙚𝙙 𝙩𝙤 𝙮𝙤𝙪𝙧 𝙣𝙚𝙚𝙙𝙨.</h3></p>
+            <a href="EVENTS.html">
+            <button class="explore-btn">Explore</button>
+        </a>
+        </div>
+    </div>
+    <div class="section" style="background-image: url('cardbk.png');">
+        <div class="section-content">
+            <i class="fas fa-utensils icon"></i> <!-- Food List Icon -->
+            <h2>Food List</h2>
+            <p><h3>𝘽𝙧𝙤𝙬𝙨𝙚 𝙩𝙝𝙚 𝙗𝙚𝙨𝙩 𝙘𝙖𝙩𝙚𝙧𝙞𝙣𝙜 𝙤𝙥𝙩𝙞𝙤𝙣𝙨</h3></p>
+            <a href="FOOD LIST.html.">
+                <button class="explore-btn">Explore</button>
+            </a>
+        </div>
+    </div>
+</div>
+</section>
+</body>
+<!--detail -->
+
+<head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+
+    .features-container {
+        max-width: 800px;
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+        gap: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .feature-card {
+        background-color: transparent;
+        border: none;
+        padding: 10px;
+        text-align: center;
+    }
+
+   
+
+    .icon-wrapper img {
+        width: 250px;
+        height: 150px;
+        object-fit: contain;
+    }
+
+    .feature-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin: 15px 0 10px;
+    }
+
+    .feature-description {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    .divider {
+        width: 60px;
+        height: 3px;
+        background-color: #3c84ff;
+        margin: 20px auto;
+    }
+</style>
+</head>
+
+<body>
+<div class="features-container">
+    <div class="feature-card">
+        <div class="icon-wrapper">
+            <img src="location.png" alt="LOCATION">
+        </div>
+        <h3 class="feature-title">NUMBER OF LOCATION</h3>
+        <p class="feature-description"><h1>12</h1></p>
+    </div>
+
+    <div class="feature-card">
+        <div class="icon-wrapper">
+            <img src="eventimg.png" alt="EVENT">
+        </div>
+        <h3 class="feature-title">NUMBER OF EVENT</h3>
+        <p class="feature-description"><H1>6</H1></p>
+    </div>
+
+    <div class="feature-card">
+        <div class="icon-wrapper">
+            <img src="foodlistimg.png" alt="FOODLIST">
+        </div>
+        <h3 class="feature-title">NUMBER OF FOODLIST</h3>
+        <p class="feature-description"><h1>25+</h></p>
+    </div>
+</div>
+</body>
+<!--about us-->
+
+<style>
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+
+.about-us-section {
+    background-color: #219ff3;
+    padding: 60px;
+    text-align: center;
+    color: #fff;
+    border-radius: 12px;
+    margin: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-content {
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 300;
+    color: #fff;
+}
+
+.highlight {
+    color: #ffeb3b;
+    font-weight: bold;
+}
+
+.call-to-action {
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2196f3;
+    background-color: #ffeb3b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.call-to-action:hover {
+    background-color: #fdd835;
+}
+</style>
+</head>
+<body>
+<section id="about">
+<div class="about-us-section">
+<div class="section-title">About Us</div>
+<div class="section-content">
+ <CENTER>  <p>Welcome to the <span class="highlight">Dinesh Catering Management System</span>, where we offer seamless and professional catering solutions designed to meet the unique needs of every event. From small gatherings to large corporate functions, our platform ensures smooth and efficient service every time.</p>
+ </CENTER> <CENTER><p>With advanced features like <span class="highlight">custom menu creation</span>, real-time order tracking, and on-time delivery, we are committed to making your events unforgettable.</p>
+ </CENTER>  <CENTER> <p>Let us handle the details while you focus on enjoying your event!</p></CENTER> 
+   
+</div>
+</div>
+</body>
+
+<!--contact-->
+<style>#contact {
+padding: 40px; /* Increased padding for more space inside the box */
+background-color: #ff0404;
+background-image: url('contactyellow.jpg'); /* Add your background image URL here */
+background-size: cover; /* Make sure the image covers the entire box */
+background-position: center; /* Center the image */
+text-align: center;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+width: 90%; /* Adjust width for responsiveness */
+max-width: 1500px; /* Increased max-width for a larger box */
+min-height: 300px; /* Set a minimum height to make the box taller */
+margin: 20px auto;
+}
+
+.contact-info ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.contact-info li {
+margin: 15px 0; /* Increased margin for spacing */
+}
+
+.contact-info a {
+color: #ffffff;
+text-decoration: none;
+font-weight: bold; /* Make font bold */
+}
+
+.social-media a {
+margin: 0 15px; /* Increased margin between icons */
+font-size: 30px; /* Increased icon size */
+color: #fff;
+text-decoration: none;
+}
+
+.social-media a:hover {
+color: #e10505;
+}
+
+/* Importing FontAwesome for social media icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+</style>
+
+
+
+</style>
+<section id="contact">
+<div class="contact-info">
+<h2>Contact Us</h2>
+<ul>
+<h3><li><strong>Phone:</strong> <a href="tel:+1234567890">+91 8778177125</a></li>
+<li><strong>Email:</strong> <a href="mailto:example@gmail.com">dineshcateringmanagementsystem@gmail.com</a></li></h3> 
+
+</ul>
+</div>
+
+<div class="social-media">
+<a href="https://www.facebook.com/profile.php?id=61572412450088" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://x.com/dinesHCSM?t=Q9-OVgqeD94LP8l5vh8pQg&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+<a href="https://www.instagram.com/csman_agment?igsh=cms5NXUwMnRudmR0" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href=" https://wa.me/message/7VA3VNCTSKRML1" target="_blank"><i class="fab fa-whatsapp"></i></a> <!-- WhatsApp icon -->
+</div>
+
+</section>
+
+<style>
+
+/* Address container styling */
+.address-container {
+text-align: center;
+padding: 20px;
+background: #808080; /* Grey background */
+border-radius: 17px;
+max-width: 1500px;
+margin: 0 auto;
+min-height: 100px;  /* Minimum height */
+height: 300px;  /* Flexible height depending on content */
+}
+
+/* Title styling */
+.address-container h2 {
+font-weight: bold;
+color: #fccf06; /* Change this color as needed */
+}
+
+/* Address content styling */
+.address-container address {
+font-weight: bold;
+color: #ffffff; /* Change this color as needed */
+line-height: 1.6;
+}
+</style>
+</head>
+<body>
+<DIV>
+<div class="address-container">
+<h2>ADDRESS</h2>
+<address>
+ <H3> 16, Ghana Prakasam 2 St,<br>
+    Chikkana College Back Side,<br>
+    Vivekananda Nagar, Konganagiri,<br>
+    Tiruppur, Tamil Nadu 641602</H3>
+</address>
+
+<BR>
+
+</body>
+</html>
+
+
+</DIV>
+<DIV>
+<BR>
+<BR>
+<BR>
+    <BR>
+<footer style="display: flex; justify-content: space-between; padding: 20px; background-color: #333; color: white;">
+<!-- Left Side -->
+<div style="flex: 1;">
+<ul style="list-style-type: none; padding: 0;">
+<li><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
+<li><a href="services.html" style="color: white; text-decoration: none;">Services</a></li>
+<li><a href="about.html" style="color: white; text-decoration: none;">About</a></li>
+<li><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
+<li><a href="address.html" style="color: white; text-decoration: none;">Address</a></li>
+</ul>
+</div>
+
+<!-- Center -->
+<div style="flex: 1; text-align: center;">
+<p>© 2025 Your Company Name. All rights reserved.</p>
+</div>
+
+<!-- Right Side -->
+<div style="flex: 1; text-align: right;">
+<a href="https://wa.me/yournumber" style="color: white; text-decoration: none; padding: 10px;">WhatsApp</a>
+<a href="https://instagram.com/yourusername" style="color: white; text-decoration: none; padding: 10px;">Instagram</a>
+<a href="https://facebook.com/yourusername" style="color: white; text-decoration: none; padding: 10px;">Facebook</a>
+<a href="https://twitter.com/yourusername" style="color: white; text-decoration: none; padding: 10px;">Twitter</a>
+</div>
+</DIV>
+</footer>

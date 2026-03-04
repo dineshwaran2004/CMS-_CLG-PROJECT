@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call Center Management 2025 - Holidays</title>
+  <style>
+     body { font-family: Arial, sans-serif; margin: 20px; }
+    .header { 
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background-color: rgba(44, 62, 80, 0.7);
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      z-index: 10;
+    }
+    
+    .back-button {
+      position: fixed;
+      top: -5px;
+      left: 10px;
+      padding: 5px 12px;
+      background-color: #dbc834;
+      color: rgb(195, 164, 41);
+      border-radius: 5px;
+      font-size: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 15;
+
+
+
+
+
+    }
+
+
+
+
+
+
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #2c3e50; text-align: center; }
+    .month { margin-bottom: 30px; }
+    .month h2 { color: #16a085; text-align: center; }
+    .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+    .day { padding: 10px; border: 1px solid #ccc; text-align: center; }
+    .hindu { background-color: #ffe0b2; border-radius: 5px; }
+    .muslim { background-color: #a8e6a1; border-radius: 5px; }
+    .christian { background-color: #f28b82; border-radius: 5px; }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 8px;
+      background-color: rgba(44, 62, 80, 0.5);
+      color: white;
+      font-size: 12px;
+      text-align: center;
+    }
+    .footer-logo {
+    position: fixed;
+    right: 20px; /* Adjust as needed */
+    bottom: 20px; /* Adjust as needed */
+    width: 100px; /* Adjust size */
+    z-index: 1000; /* Ensures it stays on top */
+}
+
+  </style>
+</head>
+<body>
+  <footer>
+    <img src="" alt="Logo" class="footer-logo">
+</footer>
+
+    <br>
+    <a href="#" class="back-button" onclick="window.history.back();">Back</a>
+    <div class="header">2025 - Government & Religious Holiday Calendar</div>
+  
+  <div id="yearCalendar"></div>
+
+  <script>
+    const holidays = {
+      // Hindu (27 functions)
+      '2025-01-01': 'Vaikuntha Ekadashi (Hindu)',
+      '2025-01-14': 'Pongal (Hindu)',
+      '2025-02-19': 'Vasant Panchami (Hindu)',
+      '2025-03-04': 'Maha Shivaratri (Hindu)',
+      '2025-04-14': 'Tamil New Year (Hindu)',
+      '2025-05-22': 'Narasimha Jayanti (Hindu)',
+      '2025-06-14': 'Ganga Dussehra (Hindu)',
+      '2025-07-12': 'Guru Purnima (Hindu)',
+      '2025-08-12': 'Krishna Janmashtami (Hindu)',
+      '2025-09-02': 'Ganesh Chaturthi (Hindu)',
+      '2025-10-02': 'Navaratri Begins (Hindu)',
+      '2025-11-01': 'Diwali (Hindu)',
+      '2025-11-24': 'Karthigai Deepam (Hindu)',
+      
+      // Muslim (9 functions)
+      '2025-02-28': 'Ramadan Begins (Muslim)',
+      '2025-03-21': 'Laylat al-Qadr (Muslim)',
+      '2025-04-02': 'Eid al-Fitr (Muslim)',
+      '2025-05-15': 'Hajj Begins (Muslim)',
+      '2025-06-08': 'Eid al-Adha (Muslim)',
+      '2025-07-19': 'Ashura (Muslim)',
+      '2025-08-10': 'Islamic New Year (Muslim)',
+      '2025-09-26': 'Mawlid al-Nabi (Muslim)',
+      
+      // Christian (9 functions)
+      '2025-01-05': 'Epiphany (Christian)',
+      '2025-02-02': 'Candlemas (Christian)',
+      '2025-03-02': 'Ash Wednesday (Christian)',
+      '2025-03-30': 'Good Friday (Christian)',
+      '2025-04-01': 'Easter Sunday (Christian)',
+      '2025-04-21': 'Palm Sunday (Christian)',
+      '2025-05-09': 'Ascension Day (Christian)',
+      '2025-12-25': 'Christmas (Christian)',
+      '2025-12-31': "New Year's Eve (Christian)"
+    };
+
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    function createMonth(monthIndex, days) {
+      const container = document.createElement('div');
+      container.className = 'month';
+      container.innerHTML = `<h2>${months[monthIndex]}</h2><div class='calendar'></div>`;
+      const calendar = container.querySelector('.calendar');
+      
+      for (let day = 1; day <= days; day++) {
+        const date = `2025-${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const div = document.createElement('div');
+        div.className = 'day';
+        div.textContent = day;
+        if (holidays[date]) {
+          if (holidays[date].includes('(Hindu)')) div.classList.add('hindu');
+          if (holidays[date].includes('(Muslim)')) div.classList.add('muslim');
+          if (holidays[date].includes('(Christian)')) div.classList.add('christian');
+          div.textContent += ` - ${holidays[date]}`;
+        }
+        calendar.appendChild(div);
+      }
+      document.getElementById('yearCalendar').appendChild(container);
+    }
+
+    const daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+    months.forEach((_, i) => createMonth(i, daysInMonth[i]));
+  </script>
+</body>
+</html>

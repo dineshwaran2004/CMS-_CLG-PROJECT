@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cards with Fullscreen Mode</title>
+  <style>
+ body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #808080, #FFD700);
+      background-size: 300% 300%;
+      animation: backgroundAnimation 10s infinite;
+      overflow: hidden;
+    }
+
+    @keyframes backgroundAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #222120;
+      font-size: 2.1em;
+      position: absolute;
+      top: 0;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 4;
+      background: rgba(255, 255, 255, 0.8);
+      color: #000;
+      text-decoration: none;
+      font-size: 0.9em;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .back-button:hover {
+      background: #ffd700;
+      transform: scale(1.1);
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px 20px 40px 20px;
+      gap: 20px;
+      height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+
+    .card {
+      width: 300px;
+      height: 200px;
+      background-color: #d3d3d3;
+      border: 5px solid #ccc;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      color: #333;
+      font-size: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .card:hover {
+      transform: rotateY(10deg) rotateX(-10deg) scale(1.05);
+    }
+
+    .card .logo img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    .card-content {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* Fullscreen Mode */
+    .card.fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+      z-index: 1000;
+      background: #ccc;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      padding: 30px;
+      gap: 20px;
+    }
+
+    .card.fullscreen img {
+      width: 40%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .card.fullscreen .text-content {
+      width: 50%;
+    }
+
+    .card.fullscreen h2 {
+      margin-top: 0;
+      font-size: 2em;
+    }
+
+    .card.fullscreen p {
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close-button:hover {
+      color: red;
+    }
+
+    footer {
+      width: 100%;
+      padding: 5px 0;
+      background-color: rgba(51, 51, 51, 0.7);
+      color: white;
+      text-align: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 1000;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <a href="FOOD LIST.html" class="back-button">Back</a>
+
+<header>NON VEG</header>
+  <div class="card-container">
+    <div class="card" data-title="MYSOORPAK" data-content="A traditional Indian sweet made with ghee, sugar, and chickpea flour."
+    data-image="MysorePak_01.jpg">
+      <div class="logo"><img src="MysorePak_01.jpg" alt="Logo"></div>
+      <div class="card-content">MYSOORPAK</div>
+    </div>
+    <div class="card" data-title="RATHAM" data-content="A traditional Indian sweet made from rice flour, ghee, and sugar."
+    data-image="ratham.webp">
+      <div class="logo"><img src="ratham.webp" alt="Logo"></div>
+      <div class="card-content">RATHA PORIYAL</div>
+    </div>
+    <div class="card" data-title="CHICKEN 65" data-content="A spicy and crispy deep-fried chicken snack originating from South India."
+     data-image="chiken 65.jpg">
+      <div class="logo"><img src="chiken 65.jpg" alt="Logo"></div>
+      <div class="card-content">CHICKEN 65</div>
+    </div>
+    <div class="card" data-title="THALAI" data-content="A traditional South Indian dish made with chicken or mutton, spices, and herbs."
+    data-image="thalai.jpg">
+      <div class="logo"><img src="thalai.jpg" alt="Logo"></div>
+      <div class="card-content">THALA KARI</div>
+    </div>
+    <div class="card" data-title="CHICKEN GRAVY" data-content="A flavorful and spicy chicken gravy commonly served with rice or bread."
+    data-image="ChickenGravy1.jpg">
+      <div class="logo"><img src="ChickenGravy1.jpg" alt="Logo"></div>
+      <div class="card-content">CHICKEN GRAVY</div>
+    </div>
+    <div class="card" data-title="WHITE RICE" data-content="A simple and staple side dish, often served with curries or gravies."
+    data-image="whit rice.jpg">
+      <div class="logo"><img src="whit rice.jpg" alt="Logo"></div>
+      <div class="card-content">WHITE RICE</div>
+    </div>
+    <div class="card" data-title="CHICKEN KULAMBU" data-content="A spicy and flavorful South Indian chicken curry typically served with rice."
+     data-image="Chicken-Kulambu-Recipe3.webp">
+      <div class="logo"><img src="Chicken-Kulambu-Recipe3.webp" alt="Logo"></div>
+      <div class="card-content">CHICKEN KULAMBU</div>
+    </div>
+    <div class="card" data-title="MUTTON KULAMBU" data-content="A rich and spicy curry made with mutton, spices, and herbs."
+    data-image="mutton kul.jpg">
+      <div class="logo"><img src="mutton kul.jpg" alt="Logo"></div>
+      <div class="card-content">MUTTON KULAMBU</div>
+    </div>
+    <div class="card" data-title="CHICKEN BIRYANI" data-content="A flavorful rice dish made with spiced chicken, rice, and herbs."
+     data-image="chiken biriyani.jpg">
+      <div class="logo"><img src="chiken biriyani.jpg" alt="Logo"></div>
+      <div class="card-content">CHICKEN BIRYANI</div>
+    </div>
+    <div class="card" data-title="MUTTON BIRYANI" data-content="A rich and aromatic rice dish made with mutton, rice, and spices."
+    data-image="mutton biriyan.jpg">
+      <div class="logo"><img src="mutton biriyan.jpg" alt="Logo"></div>
+      <div class="card-content">MUTTON BIRYANI</div>
+    </div>
+    <div class="card" data-title="ONION RAITA" data-content="A refreshing yogurt-based side dish with onions, spices, and herbs."
+     data-image="onion-raita_3859-1-1024x1536.jpg">
+      <div class="logo"><img src="onion-raita_3859-1-1024x1536.jpg" alt="Logo"></div>
+      <div class="card-content">ONION RAITA</div>
+    </div>
+  </div>
+
+    <!-- Add additional cards here -->
+  </div>
+
+  <footer>
+    <p>DineSH catering management system</p>
+  </footer>
+
+  <script>
+     document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        card.addEventListener("click", () => {
+          if (card.classList.contains("fullscreen")) {
+            card.classList.remove("fullscreen");
+            card.innerHTML = `
+              <div class="logo"><img src="${card.getAttribute("data-image")}" alt="Logo"></div>
+              <div class="card-content">${card.getAttribute("data-title")}</div>
+            `;
+          } else {
+            card.classList.add("fullscreen");
+            const title = card.getAttribute("data-title");
+            const content = card.getAttribute("data-content");
+            const image = card.getAttribute("data-image");
+
+            card.innerHTML = `
+              <span class="close-button">&times;</span>
+              <img src="${image}" alt="${title}">
+              <div class="text-content">
+                <h2>${title}</h2>
+                <p>${content}</p>
+              </div>
+            `;
+
+            card.querySelector(".close-button").addEventListener("click", () => {
+              card.classList.remove("fullscreen");
+              card.innerHTML = `
+                <div class="logo"><img src="${image}" alt="Logo"></div>
+                <div class="card-content">${title}</div>
+              `;
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

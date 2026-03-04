@@ -1,0 +1,65 @@
+ <div class="card" data-title="CUTLET" data-content="A crispy, fried Indian snack mad
+    e from mashed vegetables, herbs, spices, and breadcrumbs." data-image="cuttlet.jpg">
+      <div class="logo"><img src="cuttlet.jpg" alt="Logo"></div>
+      <div class="card-content">CUTLET</div>
+    </div>
+    <div class="card" data-title="𝙑𝙀𝙂𝙇𝙊𝙇𝙇𝙄𝙋𝙊𝙋" data-content="A vegetable cutlet is a popular Indian snack made from mashed vegetables, herbs, and spices, shaped into patties, breadcrumb-coated, and fried to a crispy, soft, and flavorful finish." 
+    data-image="veglolipop.jpg">
+      <div class="logo"><img src="veglolipop.jpg" alt="Logo"></div>
+      <div class="card-content">𝙑𝙀𝙂𝙇𝙊𝙇𝙇𝙄𝙋𝙊𝙋</div>
+    </div>
+    <div class="card" data-title="𝙋𝙄𝙉𝙀𝘼𝙋𝙋𝙇𝙀 𝙍𝙊𝙇𝙇" data-content="Pineapple roll is a sweet, tangy dessert featuring pineapple-filled pastry rolls.
+    " data-image="Pineapple roll .jpg">
+      <div class="logo"><img src="Pineapple roll .jpg" alt="Logo"></div>
+      <div class="card-content">𝙋𝙄𝙉𝙀𝘼𝙋𝙋𝙇𝙀 𝙍𝙊𝙇𝙇</div>
+    </div>
+    <div class="card" data-title="𝙄𝘿𝙇𝙄" data-content="Idli is a soft, fluffy South Indian breakfast made by steaming fermented rice and urad dal batter, typically served with coconut chutney and sambar." data-image="idli.jpg">
+      <div class="logo"><img src="idli.jpg" alt="Logo"></div>
+      <div class="card-content">𝙄𝘿𝙇𝙄</div>
+    </div>
+    <div class="card" data-title="𝘾𝙃𝙐𝙏𝙉𝙀𝙔 4𝙏𝙔𝙋𝙀" data-content="- Coconut chutney: A flavorful South Indian side for idli, dosa, pongal, or vada.  
+    - Coriander chutney: A tangy, vibrant dip for idli, dosa, or rice.  
+    - Spicy tomato chutney: A fiery, tangy side for idli and dosa.  "
+     data-image="chatni.jpg">
+      <div class="logo"><img src="chatni.jpg" alt="Logo"></div>
+      <div class="card-content">𝘾𝙃𝙐𝙏𝙉𝙀𝙔 4𝙏𝙔𝙋𝙀</div>
+    </div>
+    <div class="card" data-title="𝙒𝙃𝙄𝙏𝙀 𝙍𝙄𝘾𝙀" data-content=" White rice is a versatile, plain, and staple grain enjoyed as a side dish or base for various meals. "
+     data-image="whit rice.jpg">
+      <div class="logo"><img src="whit rice.jpg" alt="Logo"></div>
+      <div class="card-content">𝙒𝙃𝙄𝙏𝙀 𝙍𝙄𝘾𝙀</div>
+    </div>
+    <div class="card" data-title="𝙆𝙐𝙈𝘽𝙐 𝘾𝙐𝙍𝘿𝙍𝙄𝘾𝙀" data-content="Kambu Curd Rice is a comforting dish made with pearl millet (kambu), rice, and yogurt, seasoned with spices. "
+     data-image="c curd rice.jpg">
+      <div class="logo"><img src="c curd rice.jpg" alt="Logo"></div>
+      <div class="card-content">𝙆𝙐𝙈𝘽𝙐 𝘾𝙐𝙍𝘿𝙍𝙄𝘾𝙀</div>
+    </div>
+    <div class="card" data-title="𝙎𝘼𝙈𝘽𝘼𝙍" data-content="Sambar is a flavorful South Indian lentil stew with vegetables, tamarind, and spices, perfect with idli, dosa, rice, or vada.
+    
+    
+  " 
+    data-image="sambar.jpg">
+      <div class="logo"><img src="sambar.jpg" alt="Logo"></div>
+      <div class="card-content">𝙎𝘼𝙈𝘽𝘼𝙍</div>
+    </div>
+    <div class="card" data-title="𝙈𝙐𝙎𝙃𝙍𝙊𝙊𝙈 𝘽𝙄𝙍𝙄𝙔𝘼𝙉𝙄 𝙒𝙄𝙏𝙃 𝙊𝙉𝙄𝙊𝙉 𝙍𝘼𝙄𝙏𝘼" data-content="Mushroom Biryani 
+    with Onion Chana is a flavorful rice dish of spiced mushrooms and basmati rice, served with spicy chickpeas." data-image="mussroombiriyani.jpg">
+      <div class="logo"><img src="mussroombiriyani.jpg" alt="Logo"></div>
+      <div class="card-content">𝙈𝙐𝙎𝙃𝙍𝙊𝙊𝙈 𝘽𝙄𝙍𝙄𝙔𝘼𝙉𝙄 𝙒𝙄𝙏𝙃 𝙊𝙉𝙄𝙊𝙉 𝙍𝘼𝙄𝙏𝘼</div>
+    </div>
+    <div class="card" data-title="𝙆𝙊𝙏𝙃𝙐 𝙋𝙊𝙍𝘼𝙏𝙏𝘼" data-content="Kothu Porotta is a spicy South Indian and Sri Lankan
+     street food of chopped porotta stir-fried with vegetables, meat, eggs, and spices." data-image="kothup.jpg">
+      <div class="logo"><img src="kothup.jpg" alt="Logo"></div>
+      <div class="card-content">𝙆𝙊𝙏𝙃𝙐 𝙋𝙊𝙍𝘼𝙏𝙏𝘼</div>
+    </div>
+    <div class="card" data-title="𝙉𝘼𝘼𝙉" data-content="Naan is a soft, chewy Indian flatbread, perfect for curries, traditionally tandoor-baked but easy to make on a stovetop." data-image="non.jpg">
+      <div class="logo"><img src="non.jpg" alt="Logo"></div>
+      <div class="card-content">𝙉𝘼𝘼𝙉</div>
+    </div>
+    <div class="card" data-title="𝙋𝘼𝙉𝙀𝙀𝙍 𝘽𝙐𝙏𝙏𝙀𝙍 𝙈𝘼𝙎𝘼𝙇𝘼" data-content="Paneer Butter Masala is a creamy North Indian dish of paneer in a flavorful tomato-based gravy, popular for special occasions." data-image="punnirbuttermasala.jpg">
+      <div class="logo"><img src="punnirbuttermasala.jpg" alt="Logo"></div>
+      <div class="card-content">𝙋𝘼𝙉𝙀𝙀𝙍 𝘽𝙐𝙏𝙏𝙀𝙍 𝙈𝘼𝙎𝘼𝙇𝘼</div>
+    </div>
+  </div>
+    <!-- Add more cards similarly -->
+  </div>

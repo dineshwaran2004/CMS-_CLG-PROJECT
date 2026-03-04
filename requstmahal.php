@@ -1,0 +1,189 @@
+<?php
+// Database connection settings
+$servername = "localhost";
+$username = "root";  // Replace with your database username
+$password = "";  // Replace with your database password
+$dbname = "requstmahal";  // Replace with your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $mahalName = $_POST['mahalName'];
+    $address = $_POST['address'];
+    $contactNumber = $_POST['contactNumber'];
+    $gmailAddress = $_POST['gmailAddress'];
+
+    // Prepare SQL query to insert data into the database
+    $sql = "INSERT INTO mahal_requests (mahalName, address, contactNumber, gmailAddress)
+            VALUES ('$mahalName', '$address', '$contactNumber', '$gmailAddress')";
+
+    // Execute the query and check if it was successful
+    if ($conn->query($sql) === TRUE) {
+        $successMessage = "New Mahal Request submitted successfully!";
+    } else {
+        $successMessage = "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    // Close the connection
+    $conn->close();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Mahal Request</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #dcdcdc; /* Light grey */
+            color: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            color: #333;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            border-bottom: 1px solid #bbb;
+        }
+        .sidebar a:hover {
+            background-color: #ffcc00; /* Yellow */
+            color: #fff;
+        }
+
+        /* Centering the Form */
+        .main-content {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            width: 700px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #c9b116;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #db1717;
+        }
+
+        /* Success message style */
+        .success-message {
+            color: green;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <!-- Main Content with Centered Form -->
+    <div class="main-content">
+        <form id="mahalForm" action="submit_mahal.php" method="POST" onsubmit="return showSuccessMessage(event)">
+            <h2 style="text-align: center;">New Mahal Request</h2>
+
+            <label for="mahalName">Mahal Name:</label>
+            <input type="text" id="mahalName" name="mahalName" required>
+
+            <label for="address">Address (Tirupur):</label>
+            <textarea id="address" name="address" required>Tirupur</textarea>
+
+            <label for="contactNumber">Contact Number:</label>
+            <input type="tel" id="contactNumber" name="contactNumber" pattern="[0-9]{10}" required>
+
+            <label for="gmailAddress">Gmail Address:</label>
+            <input type="email" id="gmailAddress" name="gmailAddress" required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Success message will appear here -->
+        <div id="successMessage" class="success-message" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Function to handle form submission and show success message
+        function showSuccessMessage(event) {
+            event.preventDefault(); // Prevent the form from submitting immediately
+
+            // Show the success message
+            var successMessageDiv = document.getElementById("successMessage");
+            successMessageDiv.innerHTML = "New Mahal Request submitted successfully!";
+            successMessageDiv.style.display = "block";
+
+            // Optionally, you can submit the form using AJAX here if needed
+            // For now, we simulate the form submission by redirecting after 3 seconds
+            setTimeout(function() {
+                document.getElementById("mahalForm").submit();
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buffet List</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #808080, #FFD700);
+      background-size: 300% 300%;
+      animation: backgroundAnimation 10s infinite;
+      overflow: hidden;
+    }
+
+    @keyframes backgroundAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #222120;
+      font-size: 2.1em;
+      position: absolute;
+      top: 0;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 4;
+      background: rgba(255, 255, 255, 0.8);
+      color: #000;
+      text-decoration: none;
+      font-size: 0.9em;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .back-button:hover {
+      background: #ffd700;
+      transform: scale(1.1);
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px 20px 40px 20px;
+      gap: 20px;
+      height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+
+    .card {
+      width: 300px;
+      height: 200px;
+      background-color: #d3d3d3;
+      border: 5px solid #ccc;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      color: #333;
+      font-size: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .card:hover {
+      transform: rotateY(10deg) rotateX(-10deg) scale(1.05);
+    }
+
+    .card .logo img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    .card-content {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* Fullscreen Mode */
+    .card.fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+      z-index: 1000;
+      background: #ccc;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      padding: 30px;
+      gap: 20px;
+    }
+
+    .card.fullscreen img {
+      width: 40%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .card.fullscreen .text-content {
+      width: 50%;
+    }
+
+    .card.fullscreen h2 {
+      margin-top: 0;
+      font-size: 2em;
+    }
+
+    .card.fullscreen p {
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close-button:hover {
+      color: red;
+    }
+
+    footer {
+      width: 100%;
+      padding: 5px 0;
+      background-color: rgba(51, 51, 51, 0.7);
+      color: white;
+      text-align: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 1000;
+      font-size: 0.9em;
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="FOOD LIST.html" class="back-button">Back</a>
+  <header>𝗕𝗨𝗙𝗙𝗘𝗧 𝗟𝗜𝗦𝗧</header>
+
+  <div class="card-container">
+    <div class="card" data-title="CUTLET" data-content="A crispy, fried Indian snack made from mashed vegetables, herbs, spices, and breadcrumbs." data-image="cuttlet.jpg">
+      <div class="logo"><img src="cuttlet.jpg" alt="Logo"></div>
+      <div class="card-content">CUTLET</div>
+    </div>
+
+    <div class="card" data-title="𝙑𝙀𝙂𝙇𝙊𝙇𝙇𝙄𝙋𝙊𝙋" data-content="A vegetable cutlet is a popular Indian snack made from mashed vegetables, herbs, and spices, shaped into patties, breadcrumb-coated, and fried to a crispy, soft, and flavorful finish." data-image="veglolipop.jpg">
+      <div class="logo"><img src="veglolipop.jpg" alt="Logo"></div>
+      <div class="card-content">𝙑𝙀𝙂𝙇𝙊𝙇𝙇𝙄𝙋𝙊𝙋</div>
+    </div>
+    <div class="card" data-title="𝙋𝙄𝙉𝙀𝘼𝙋𝙋𝙇𝙀 𝙍𝙊𝙇𝙇" data-content="Pineapple roll is a sweet, tangy dessert featuring pineapple-filled pastry rolls.
+    " data-image="Pineapple roll .jpg">
+      <div class="logo"><img src="Pineapple roll .jpg" alt="Logo"></div>
+      <div class="card-content">𝙋𝙄𝙉𝙀𝘼𝙋𝙋𝙇𝙀 𝙍𝙊𝙇𝙇</div>
+    </div>
+    <div class="card" data-title="𝙄𝘿𝙇𝙄" data-content="Idli is a soft, fluffy South Indian breakfast made by steaming fermented rice and urad dal batter, typically served with coconut chutney and sambar." data-image="idli.jpg">
+      <div class="logo"><img src="idli.jpg" alt="Logo"></div>
+      <div class="card-content">𝙄𝘿𝙇𝙄</div>
+    </div>
+    <div class="card" data-title="𝘾𝙃𝙐𝙏𝙉𝙀𝙔 4𝙏𝙔𝙋𝙀" data-content="- Coconut chutney: A flavorful South Indian side for idli, dosa, pongal, or vada.  
+    - Coriander chutney: A tangy, vibrant dip for idli, dosa, or rice.  
+    - Spicy tomato chutney: A fiery, tangy side for idli and dosa.  "
+     data-image="chatni.jpg">
+      <div class="logo"><img src="chatni.jpg" alt="Logo"></div>
+      <div class="card-content">𝘾𝙃𝙐𝙏𝙉𝙀𝙔 4𝙏𝙔𝙋𝙀</div>
+    </div>
+    <div class="card" data-title="𝙒𝙃𝙄𝙏𝙀 𝙍𝙄𝘾𝙀" data-content=" White rice is a versatile, plain, and staple grain enjoyed as a side dish or base for various meals. "
+     data-image="whit rice.jpg">
+      <div class="logo"><img src="whit rice.jpg" alt="Logo"></div>
+      <div class="card-content">𝙒𝙃𝙄𝙏𝙀 𝙍𝙄𝘾𝙀</div>
+    </div>
+    <div class="card" data-title="𝙆𝙐𝙈𝘽𝙐 𝘾𝙐𝙍𝘿𝙍𝙄𝘾𝙀" data-content="Kambu Curd Rice is a comforting dish made with pearl millet (kambu), rice, and yogurt, seasoned with spices. "
+     data-image="c curd rice.jpg">
+      <div class="logo"><img src="c curd rice.jpg" alt="Logo"></div>
+      <div class="card-content">𝙆𝙐𝙈𝘽𝙐 𝘾𝙐𝙍𝘿𝙍𝙄𝘾𝙀</div>
+    </div>
+    <div class="card" data-title="𝙎𝘼𝙈𝘽𝘼𝙍" data-content="Sambar is a flavorful South Indian lentil stew with vegetables, tamarind, and spices, perfect with idli, dosa, rice, or vada.
+    
+    
+  " 
+    data-image="sambar.jpg">
+      <div class="logo"><img src="sambar.jpg" alt="Logo"></div>
+      <div class="card-content">𝙎𝘼𝙈𝘽𝘼𝙍</div>
+    </div>
+    <div class="card" data-title="𝙈𝙐𝙎𝙃𝙍𝙊𝙊𝙈 𝘽𝙄𝙍𝙄𝙔𝘼𝙉𝙄 𝙒𝙄𝙏𝙃 𝙊𝙉𝙄𝙊𝙉 𝙍𝘼𝙄𝙏𝘼" data-content="Mushroom Biryani 
+    with Onion Chana is a flavorful rice dish of spiced mushrooms and basmati rice, served with spicy chickpeas." data-image="mussroombiriyani.jpg">
+      <div class="logo"><img src="mussroombiriyani.jpg" alt="Logo"></div>
+      <div class="card-content">𝙈𝙐𝙎𝙃𝙍𝙊𝙊𝙈 𝘽𝙄𝙍𝙄𝙔𝘼𝙉𝙄 𝙒𝙄𝙏𝙃 𝙊𝙉𝙄𝙊𝙉 𝙍𝘼𝙄𝙏𝘼</div>
+    </div>
+    <div class="card" data-title="𝙆𝙊𝙏𝙃𝙐 𝙋𝙊𝙍𝘼𝙏𝙏𝘼" data-content="Kothu Porotta is a spicy South Indian and Sri Lankan
+     street food of chopped porotta stir-fried with vegetables, meat, eggs, and spices." data-image="kothup.jpg">
+      <div class="logo"><img src="kothup.jpg" alt="Logo"></div>
+      <div class="card-content">𝙆𝙊𝙏𝙃𝙐 𝙋𝙊𝙍𝘼𝙏𝙏𝘼</div>
+    </div>
+    <div class="card" data-title="𝙉𝘼𝘼𝙉" data-content="Naan is a soft, chewy Indian flatbread, perfect for curries, traditionally tandoor-baked but easy to make on a stovetop." data-image="non.jpg">
+      <div class="logo"><img src="non.jpg" alt="Logo"></div>
+      <div class="card-content">𝙉𝘼𝘼𝙉</div>
+    </div>
+    <div class="card" data-title="𝙋𝘼𝙉𝙀𝙀𝙍 𝘽𝙐𝙏𝙏𝙀𝙍 𝙈𝘼𝙎𝘼𝙇𝘼" data-content="Paneer Butter Masala is a creamy North Indian dish of paneer in a flavorful tomato-based gravy, popular for special occasions." data-image="punnirbuttermasala.jpg">
+      <div class="logo"><img src="punnirbuttermasala.jpg" alt="Logo"></div>
+      <div class="card-content">𝙋𝘼𝙉𝙀𝙀𝙍 𝘽𝙐𝙏𝙏𝙀𝙍 𝙈𝘼𝙎𝘼𝙇𝘼</div>
+    </div>
+  </div>
+    <!-- Add more cards similarly -->
+  </div>
+  </div>
+
+  <footer>
+    <p>© 2024 DinesH Catering Management System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        card.addEventListener("click", () => {
+          if (card.classList.contains("fullscreen")) {
+            card.classList.remove("fullscreen");
+            card.innerHTML = `
+              <div class="logo"><img src="${card.getAttribute("data-image")}" alt="Logo"></div>
+              <div class="card-content">${card.getAttribute("data-title")}</div>
+            `;
+          } else {
+            card.classList.add("fullscreen");
+            const title = card.getAttribute("data-title");
+            const content = card.getAttribute("data-content");
+            const image = card.getAttribute("data-image");
+
+            card.innerHTML = `
+              <span class="close-button">&times;</span>
+              <img src="${image}" alt="${title}">
+              <div class="text-content">
+                <h2>${title}</h2>
+                <p>${content}</p>
+              </div>
+            `;
+
+            card.querySelector(".close-button").addEventListener("click", () => {
+              card.classList.remove("fullscreen");
+              card.innerHTML = `
+                <div class="logo"><img src="${image}" alt="Logo"></div>
+                <div class="card-content">${title}</div>
+              `;
+            });
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

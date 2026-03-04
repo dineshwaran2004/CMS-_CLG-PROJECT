@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Smart Event Management</title>
+    <style>
+        
+/*header*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.118); /* Transparent background */
+    color: white;
+    position: fixed; /* Keep the header fixed on top */
+    width: 98%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 40px; /* Set a specific height */
+}
+
+.header-left a, .header-right a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-right: 1.5rem;
+}
+
+.header-left a:hover, .header-right a:hover {
+    text-decoration: underline;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar {
+    position: relative;
+    margin-left: 1rem;
+}
+
+.menu-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    padding: 10px;
+}
+
+/* Initially hide the dropdown menu */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 45px; /* Adjusted for spacing */
+    right: 0;
+    background-color: #333; /* Dark background */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 200px; /* Adjust width */
+}
+
+/* Style the links inside the dropdown */
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.dropdown-menu a:hover {
+    background-color: #555; /* Darker hover effect */
+}
+
+/* Display the dropdown menu when .active class is added */
+.menu-bar.active .dropdown-menu {
+    display: block;
+}
+
+/* Hamburger button style */
+.menu-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    padding: 10px;
+}
+
+
+
+
+/*HOME*/
+.hero {
+    font-family: 'Poppins', sans-serif; /* Change to your selected font */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 3.5rem; /* Make the heading slightly larger */
+    margin: 0 0 1rem;
+    font-weight: 700; /* Bold weight for better emphasis */
+    letter-spacing: 1px; /* Add spacing for elegance */
+}
+
+p {
+    font-size: 1.4rem; /* Increase font size slightly */
+    margin-bottom: 2rem;
+    font-weight: 400; /* Regular weight */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Optional: Add text shadow for a glowing effect */
+.hero-content h1,
+.hero-content p {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Prevents blank space */
+}
+
+.hero .slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%; /* If you have 4 images, set width to 400% */
+    height: 100%;
+    display: flex;
+    animation: slide-animation 12s infinite alternate ease-in-out;
+}
+
+.hero .slides img {
+    width: 100vw; /* Each image takes full viewport width */
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes slide-animation {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-100vw); }
+    50% { transform: translateX(-200vw); }
+    75% { transform: translateX(-300vw); }
+
+}
+
+
+        /* Overlay with Gradient */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+}
+
+/* Hero Content Centering */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    color: white;
+}
+
+/* Title Styling */
+h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Call-to-Action Button */
+.btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #ffcc00, #ff6600);
+    color: #fff;
+    padding: 0.75rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(255, 102, 0, 0.4);
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    background: linear-gradient(45deg, #ff6600, #ffcc00);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 102, 0, 0.6);
+}
+
+/* Smooth Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1,
+.hero-content p,
+.hero-content .btn {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Blinking Button Animation */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(255, 165, 0, 0.7);
+    }
+}
+
+.btn {
+    animation: glow 2s infinite alternate;
+}
+
+
+
+</style>
+</head>
+<body>
+
+    <!--SURCH-->
+    
+    <!-- Hamburger Menu -->
+    <header>
+        <div class="header-left">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="header-right">
+            <!-- Links to sections within the same page (ensure matching IDs) -->
+            <a href= "#about">About Us</a>
+            <a href="#contact">Contact</a>
+            <div class="menu-bar">
+                <div class="menu-bar">
+                    <button onclick="toggleMenu()">☰</button>
+                    <div class="dropdown-menu">
+                        <a href="login.php">Admin login</a>
+                        <a href="workerlogin.php">Mahal&Manapam login</a>
+                        
+                        
+                        
+                        <a href="feedback.php">feedback</a>
+                    </div>
+                </div>
+                
+        </div>
+        <script>
+            function toggleMenu() {
+                const menuBar = document.querySelector('.menu-bar');
+                menuBar.classList.toggle('active');
+            }
+        </script>
+    </header>
+    
+ 
+
+    <!--HOME-->
+    <div class="hero">
+        <div class="slides">
+            <img src="slide7.jpg" alt="Slide 1">
+            <img src="slydeno2.jpg" alt="Slide 2">
+            <img src="slydeno3.jpg" alt="Slide 3">
+            <img src="slydeno4.jpg" alt="Slide 4">
+         
+        </div>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+            <h1>Smart Event Management</h1>
+         
+            <a href="event booking.php" class="btn">Book Now</a>
+            <a href="add_worker.php" class="btn" style="margin-left: 1rem;">Worker Registration</a>
+        </div>
+    </div>
+
+    <!--detail viwing-->
+
+    <head>
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage Section - Event Services</title>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Booking System</title>
+  <style>
+    body {
+    font-family: 'Verdana', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+.section-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 180px;
+    min-height: -200vh; /* Default */
+}
+
+@media (max-width: 68px) {
+    .section-container {
+        min-height: -200vh; /* Change for smaller screens */
+    }
+}
+
+.content {
+    flex: 1;
+    padding: 60px;
+    text-align: center;
+    font-family: 'Verdana', sans-serif;
+}
+
+.image img {
+    width: 100%; 
+    max-width: 450px;
+    border-radius: 52px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.btn {
+    padding: 12px 24px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background-color: #45A049;
+}
+
+    @media(max-width:768px) {.section-container {flex-direction:column;}}
+  </style>
+</head>
+<body>
+  <SCRIPT>  document.documentElement.style.setProperty('--dynamic-height', '1000vh');</SCRIPT>
+
+
+<section class="section-container">
+  <div class="content">
+    <h2>📅 Event Calendar</h2>
+    <p>Our calendar offers a comprehensive view of upcoming events, including workshops, concerts, and community gatherings. Stay informed and never miss an opportunity to participate in exciting activities.</p>
+    <a href="CALLENDER.HTML" class="btn">View Calendar</a>
+  </div>
+  <div class="image"><img src="callender.jpg" alt="Event Calendar"></div>
+</section>
+<section class="section-container">
+  <div class="image"><img src="eventplace.jpg" alt="Event Place"></div>
+  <div class="content">
+    <h2>🏛️ Event Places</h2>
+    <p>Explore a range of stunning venues, from modern conference halls to outdoor garden settings. Whether for weddings, birthdays, or corporate events, we have the perfect spot to make your occasion unforgettable.</p>
+    <a href="EVENTLOCATION.html" class="btn">Explore Venues</a>
+  </div>
+</section>
+<section class="section-container">
+  <div class="content">
+    <h2>🎉 Events</h2>
+    <p>From vibrant weddings to professional conferences, our curated events cater to every need. Discover thrilling experiences designed to create lasting memories for you and your guests.</p>
+    <a href="EVENTS.html" class="btn">View Events</a>
+  </div>
+  <div class="image"><img src="event.webp" alt="Events"></div>
+</section>
+<section class="section-container">
+  <div class="image"><img src="food.jpg" alt="Food"></div>
+  <div class="content">
+    <h2>🍽️ Culinary Delights</h2>
+    <p>Indulge in a variety of cuisines with our extensive menu, featuring live counters, gourmet delicacies, and decadent desserts. Enjoy flavors that delight your palate and elevate your event experience.</p>
+    <a href="FOOD LIST.html" class="btn">Explore Menu</a>
+  </div>
+</section>
+</body>
+</html>
+
+<!--options-->
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+
+  .services-section { padding: 2rem; max-width: 1100px; margin: 2rem auto; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+  .service-item {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 15px;
+    background: #f0f0f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .service-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+  .service-item img {
+    width: 100%;
+    height: 220px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  .service-item h3 { color: #333; margin: 1rem 0 0.5rem; }
+</style>
+</head>
+<body>
+
+
+  <section class="services-section">
+    <div class="services-grid">
+      <div class="service-item">
+        <a href="Decration.html" target="_blank">
+          <img src="decration.jpg" alt="Decoration">
+        </a>
+        <h3>Decoration</h3>
+      </div>
+      <div class="service-item">
+        <a href="makup.html" target="_blank">
+          <img src="makup.jpg" alt="Makeup">
+        </a>
+        <h3>Bridal Makeup</h3>
+      </div>
+      <div class="service-item">
+        <a href="Orchestra.html" target="_blank">
+          <img src="Orchestra.jpg" alt="Orchestra">
+        </a>
+        <h3>Orchestra</h3>
+      </div>
+      <div class="service-item">
+        <a href="Photography.html" target="_blank">
+          <img src="Photography.webp" alt="Photography">
+        </a>
+        <h3>Photography</h3>
+      </div>
+    </div>
+  </section>
+  
+</body>
+</html>
+
+
+        <!--about us-->
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>About Us - Dinesh Catering</title>
+          <style>
+            body {
+              font-family: 'Verdana', sans-serif;
+              margin: 0;
+              padding: 0;
+              background-color: #f0f8ff;
+            }
+        
+            /* Reduced Size About Us Section */
+            .about-us-section {
+              background-color: #0056A3; /* Deep Blue Background */
+              padding: 30px 20px;
+              text-align: center;
+              color: #fff;
+              border-radius: 10px;
+              margin: 30px auto;
+              max-width: 1700px;
+              box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            }
+        
+            .section-title {
+              font-size: 28px;
+              font-weight: bold;
+              color: #FFD700; /* Bright Yellow Title */
+              text-transform: uppercase;
+              margin-bottom: 15px;
+              letter-spacing: 1px;
+              text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            }
+        
+            .section-content p {
+              font-size: 14px;
+              line-height: 1.5;
+              font-weight: bold;
+              color: #ffffff; /* White Text */
+              margin-bottom: 10px;
+            }
+        
+            .highlight {
+              color: #FFD700; /* Bright Yellow Highlight */
+              font-weight: bold;
+            }
+        
+            @media (max-width: 768px) {
+              .about-us-section {
+                padding: 20px 10px;
+                margin: 10px;
+              }
+        
+              .section-title {
+                font-size: 20px;
+              }
+        
+              .section-content p {
+                font-size: 12px;
+              }
+            }
+          </style>
+        </head>
+        <body>
+        
+        <!-- Reduced Size About Us Section -->
+        <section id="about">
+          <div class="about-us-section">
+            <div class="section-title">About Us</div>
+            <div class="section-content">
+              <p>Welcome to the <span class="highlight">Dinesh Catering Management System</span>, where we offer seamless and professional catering solutions designed to meet the unique needs of every event.</p>
+              <p>With advanced features like <span class="highlight">
+              <p>Let us handle the details while you focus on enjoying your event!</p>
+            </div>
+          </div>
+        </section>
+        
+        </body>
+        </html>
+        
+        
+        
+<!-- Full Contact Section Code with Social Media Icons -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Section with Map</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      background-color: #f0f8ff;
+    }
+
+    .left-section {
+      flex: 1;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      margin-right: 20px;
+    }
+
+    .left-section h2 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .contact-details p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin-right: 15px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    .right-section {
+      flex: 2;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .left-section {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Left Section -->
+    <div class="left-section">
+      <h2>Contact Us</h2>
+      <div class="contact-details">
+       <h2> <strong>Phone:</strong> +91 8778177125</h2>
+       <h2> <strong>Email:</strong> dineshcms@gmail.com</h2>
+        <h2><strong>Address:</strong> 0/000 tirupur ,tamilnadu.</h2>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank">
+          <img src="https://img.icons8.com/fluency/48/facebook-new.png" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+          <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram">
+        </a>
+        <a href="https://www.twitter.com" target="_blank">
+          <img src="https://img.icons8.com/fluency/48/twitter.png" alt="X">
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=919876543210" target="_blank">
+          <img src="https://img.icons8.com/fluency/48/whatsapp.png" alt="WhatsApp">
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Section: Google Map -->
+    <div class="right-section">
+      <!-- Replace with your actual Google Map Embed URL -->
+      <iframe 
+        src="https://maps.app.goo.gl/k9c6muehVyhvvLLV8" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+</body>
+</html>
+
+    
+</DIV>
+<DIV>
+    <BR>
+        <BR>
+            <BR>
+                <BR>
+                  <head>
+                    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+                    <style>
+                        footer {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            padding: 30px;
+                            background-color: #f8f9fa;
+                            color: black;
+                            font-family: 'Poppins', sans-serif; /* Modern Font */
+                            flex-wrap: wrap;
+                        }
+                        h3 {
+                            font-weight: 600;
+                        }
+                        p, a {
+                            font-weight: 400;
+                            text-decoration: none;
+                            color: black;
+                            font-size: 14px;
+                        }
+                        a:hover {
+                            color: #ff6600; /* Adds hover effect */
+                        }
+                        ul {
+                            list-style: none;
+                            padding: 0;
+                            line-height: 1.8;
+                        }
+                        .social-icons img {
+                            transition: transform 0.3s ease-in-out;
+                        }
+                        .social-icons img:hover {
+                            transform: scale(1.2); /* Smooth Zoom Effect */
+                        }
+                    </style>
+                </head>
+                <body>
+                
+                <footer>
+                    <!-- About Us Section -->
+                    <div style="width: 30%;">
+                        <h3>About Us</h3>
+                        <p>
+                            Welcome to Dinesh Catering Management System, your one-stop solution for hassle-free event catering. 
+                            We offer delicious food, seamless booking, and outstanding service for every occasion.
+                        </p>
+                
+                        <!-- Quick Links Under About Us -->
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="address.html">Address</a></li>
+                        </ul>
+                    </div>
+                Dinesh Catering Management System
+                    <!-- Social Media Icons -->
+                    <div style="width: 30%; text-align: right;">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons" style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px;">
+                            <a href="https://wa.me/message/7VA3VNCTSKRML1">
+                                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="30">
+                            </a>
+                            <a href="https://www.instagram.com/csman_agment?igsh=cms5NXUwMnRudmR0">
+                                <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" width="30">
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61572412450088">
+                                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30">
+                            </a>
+                            <a href=""https://x.com/dinesHCSM?t=Q9-OVgqeD94LP8l5vh8pQg&s=09">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="X (Twitter)" width="30">
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+                
+                </body>
+                

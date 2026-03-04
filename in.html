@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DinesH Catering Management System</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            float: left;
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        header nav {
+            float: right;
+        }
+
+        header nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #77aaff;
+        }
+
+        /* Hero Section with Slideshow */
+        .hero {
+            position: relative;
+            height: 100vh;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: slideshow 15s infinite;
+            z-index: -1;
+            filter: brightness(60%);
+        }
+
+        @keyframes slideshow {
+            0% { background-image: url('images/slide1.jpg'); }
+            33% { background-image: url('images/slide2.jpg'); }
+            66% { background-image: url('images/slide3.jpg'); }
+            100% { background-image: url('images/slide1.jpg'); }
+        }
+
+        /* Text Styling */
+        .hero h2, .hero p {
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero .btn {
+            position: relative;
+            z-index: 1;
+            background: #fff;
+            color: #333;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background: #77aaff;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #fff;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .services-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service-item {
+            width: 30%;
+            margin: 15px 0;
+            padding: 30px;
+            background: #f9f9f9;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .service-item p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 800px;
+            margin: auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #fff;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .contact p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact form input:focus,
+        .contact form textarea:focus {
+            border-color: #77aaff;
+            outline: none;
+        }
+
+        .contact form button {
+            background: #77aaff;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact form button:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .service-item {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            header h1, header nav {
+                float: none;
+                text-align: center;
+            }
+
+            header nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>DinesH Catering Management System</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#login">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Welcome to DinesH Catering Management System</h2>
+            <p>Your one-stop solution for managing catering services efficiently.</p>
+            <a href="#services" class="btn">Explore Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Event Planning</h3>
+                    <p>We help you plan and execute events seamlessly.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Menu Customization</h3>
+                    <p>Customize menus to suit your event's theme and preferences.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Staff Management</h3>
+                    <p>Efficiently manage staff and resources for your events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>DinesH Catering Management System is dedicated to providing top-notch catering services with a focus on quality, efficiency, and customer satisfaction. Our system simplifies the management of catering operations, ensuring every event is a success.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have any questions? Reach out to us!</p>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 DinesH Catering Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Submission Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            flex-direction: column; /* Stack content vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        .form-container {
+            background-color: #ffffff; /* White background for the form */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Width of the form */
+            background-color: #fafafa; /* Light grey background for the form */
+            margin-bottom: 20px; /* Space for footer */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        h3 {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #b88510; /* Yellow background for the submit button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #FF9800; /* Darker yellow on hover */
+        }
+
+        .message {
+            font-size: 16px;
+            color: #28a745;
+            text-align: center;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #fafafa;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            position: relative;
+            bottom: 0;
+        }
+
+        /* Logo styles */
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Logo on the left corner -->
+<div class="logo">
+   <a href="index.html"> <img src="LOGO.png" alt="DinesH Catering Logo"> </a>
+</div>
+
+<!-- Form Container -->
+<div class="form-container">
+    <h2>Submit Your Report</h2>
+    <form id="reportForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="reportType">Report Type:</label>
+        <select id="reportType" name="reportType" required>
+            <option value="service">Service Feedback</option>
+            <option value="food">Food Quality</option>
+            <option value="catering">Catering Experience</option>
+        </select>
+
+        <label for="description">Report Details:</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+
+        <button type="submit">Submit Report</button>
+    </form>
+    
+    <p id="confirmationMessage" class="message"></p>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Your Company. All rights reserved.</p>
+</footer>
+
+<script>
+    document.getElementById('reportForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // You can implement the logic to handle the form data here (e.g., send it to a server)
+        document.getElementById('confirmationMessage').textContent = 'Thank you for your submission!';
+
+        // Clear the form fields
+        document.getElementById('reportForm').reset();
+    });
+</script>
+
+</body>
+</html>

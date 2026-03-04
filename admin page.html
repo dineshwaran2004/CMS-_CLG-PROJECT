@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7; /* Light grey background */
+            color: #333;
+            padding: 20px;
+            margin: 0;
+            position: relative; /* For positioning the logo */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh; /* Full viewport height */
+        }
+        h2, h3 {
+            color: #333;
+            text-align: center; /* Center the header */
+        }
+        .container {
+            width: 100%;
+            max-width: 800px; /* Center content and restrict width */
+        }
+        .worker-list {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .worker-item {
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .worker-item p {
+            margin: 5px 0;
+        }
+        .action-buttons {
+            margin-top: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #f2c94c; /* Yellow button */
+            color: #333;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #f1a500; /* Darker yellow on hover */
+        }
+        form {
+            background-color: #ffffff; /* White background for form */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input:focus, select:focus {
+            border-color: #f2c94c; /* Yellow focus border */
+            outline: none;
+        }
+        button[type="submit"] {
+            background-color: #f2c94c; /* Yellow background */
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #f1a500; /* Darker yellow on hover */
+        }
+        #saveAllBtn {
+            background-color: #f2c94c; /* Yellow button */
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        #saveAllBtn:hover {
+            background-color: #f1a500; /* Darker yellow on hover */
+        }
+
+        /* Logo styling */
+        #logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px; /* Size of logo */
+            height: auto;
+        }
+
+        /* Footer styling */
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo -->
+   <a href="index.html"> <img src="LOGO.png" id="logo" alt="Logo"></a>
+
+    <div class="container">
+        <h2>Worker Details</h2>
+
+        <!-- Form to Add Worker -->
+        <form id="workerForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place" required>
+
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="Chef">Chef</option>
+                <option value="Catering Work">Catering Work</option>
+                <option value="Server">Server</option>
+                <option value="Cleaner">Cleaner</option>
+            </select>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="contact">Contact No:</label>
+            <input type="text" id="contact" name="contact" required>
+
+            <button type="submit">Add Worker</button>
+        </form>
+
+        <!-- Button to Save All Workers -->
+        <button id="saveAllBtn">Save All Workers</button>
+
+        <!-- Worker List Section -->
+        <h3>Worker List</h3>
+        <div class="worker-list" id="workerList"></div>
+    </div>
+
+    <script>
+        // Load workers from localStorage
+        const loadWorkers = () => {
+            const workers = JSON.parse(localStorage.getItem("workers")) || [];
+            const workerList = document.getElementById("workerList");
+            workerList.innerHTML = ""; // Clear the list before adding items
+
+            workers.forEach((worker, index) => {
+                const workerItem = document.createElement("div");
+                workerItem.classList.add("worker-item");
+
+                workerItem.innerHTML = ` 
+                    <p><strong>1. Name:</strong> ${worker.name}</p>
+                    <p><strong>2. Place:</strong> ${worker.place}</p>
+                    <p><strong>3. Role:</strong> ${worker.role}</p>
+                    <p><strong>4. Gender:</strong> ${worker.gender}</p>
+                    <p><strong>5. Contact No:</strong> ${worker.contact}</p>
+                    <div class="action-buttons">
+                        <button onclick="editWorker(${index})">Edit</button>
+                        <button onclick="deleteWorker(${index})">Delete</button>
+                    </div>
+                `;
+
+                workerList.appendChild(workerItem);
+            });
+        };
+
+        // Save worker data to localStorage
+        const saveWorker = (worker) => {
+            const workers = JSON.parse(localStorage.getItem("workers")) || [];
+            workers.push(worker);
+            localStorage.setItem("workers", JSON.stringify(workers));
+        };
+
+        // Handle form submit to add worker
+        document.getElementById("workerForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const worker = {
+                name: document.getElementById("name").value,
+                place: document.getElementById("place").value,
+                role: document.getElementById("role").value,
+                gender: document.getElementById("gender").value,
+                contact: document.getElementById("contact").value,
+            };
+            saveWorker(worker);
+            loadWorkers();
+            document.getElementById("workerForm").reset(); // Clear form fields
+        });
+
+        // Edit worker
+        const editWorker = (index) => {
+            const workers = JSON.parse(localStorage.getItem("workers"));
+            const worker = workers[index];
+            document.getElementById("name").value = worker.name;
+            document.getElementById("place").value = worker.place;
+            document.getElementById("role").value = worker.role;
+            document.getElementById("gender").value = worker.gender;
+            document.getElementById("contact").value = worker.contact;
+            
+            // Remove the worker from localStorage for editing
+            workers.splice(index, 1);
+            localStorage.setItem("workers", JSON.stringify(workers));
+        };
+
+        // Delete worker
+        const deleteWorker = (index) => {
+            const workers = JSON.parse(localStorage.getItem("workers"));
+            workers.splice(index, 1);
+            localStorage.setItem("workers", JSON.stringify(workers));
+            loadWorkers();
+        };
+
+        // Save all workers to localStorage
+        document.getElementById("saveAllBtn").addEventListener("click", () => {
+            const workers = JSON.parse(localStorage.getItem("workers")) || [];
+            localStorage.setItem("workers", JSON.stringify(workers)); // Simply re-save workers in localStorage
+            alert("All workers have been saved.");
+        });
+
+        // Load the list of workers on page load
+        loadWorkers();
+    </script>
+
+</body>
+</html>
